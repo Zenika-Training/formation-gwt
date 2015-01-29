@@ -1,7 +1,16 @@
 [
-  "00_agenda.md",
-  "01_bases.md",
-  "02_code.md",
-  "03_images.md",
-  "04_animations.md"
+  "GWT_-_00_-_Plan.md",
+  "GWT_-_01_-_Introduction.md",
+  "GWT_-_02_-_Eclipse.md",
+  "GWT_-_03_-_Les_principes_de_GWT.md",
+  "GWT_-_04_-_Les_Widgets_et_le_Développement_d'IHMs.md",
+  "GWT_-_05_-_Communication_RPC.md",
+  "GWT_-_06_-_Développement_de_composants.md",
+  "GWT_-_07_-_Evenements.md",
+  "GWT_-_08_-_Internationalisation.md",
+  "GWT_-_09_-_UiBinder.md",
+  "GWT_-_10_-_Historique.md",
+  "GWT_-_11_-_Intégration_Java_EE.md",
+  "GWT_-_12_-_Tests.md",
+  "GWT_-_13_-_Notions_Avancees.md"
 ]
