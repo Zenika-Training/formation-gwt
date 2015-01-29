@@ -1,0 +1,17 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+  <g:MenuBar>
+    <g:MenuItem text="Utilisateur">
+      <g:MenuBar vertical="true">
+        <g:MenuItem ui:field="modifierItem">Modifier</g:MenuItem>
+        <g:MenuItem ui:field="deconnecterItem">Se déconnecter</g:MenuItem>
+      </g:MenuBar>
+    </g:MenuItem>
+    <g:MenuItem text="Voyages">
+      <g:MenuBar vertical="true">
+        <g:MenuItem ui:field="rechercherItem">Rechercher</g:MenuItem>
+      </g:MenuBar>
+    </g:MenuItem>
+  </g:MenuBar>
+</ui:UiBinder> 

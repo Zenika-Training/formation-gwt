@@ -1,0 +1,37 @@
+##########################
+# 26-09-2012 : T. Leroux #
+##########################
+Jour 1
+	09h30 -> 12h30 : chap 00, chap 01, chap 02, TP1
+	13h30 -> 17h30 : chap 03, début chap04, TP2, fin chap 04, TP3
+Jour 2
+	09h00 -> 12h30 : chap 05, TP4
+	14h00 -> 17h00 : fin TP4, chap 06, TP5, chap 07, début TP6 (Evènements)
+Jour 3
+	09h00 -> 12h30 : fin TP6, chap 08, TP6 (Internationalisation), chap 09
+	14h00 -> 17h00 : chap 10, chap 11, chap 12, TP7 (UiBinder), TP8 (History)
+
+Notes
+	Groupe de niveau hétérogène en Java, on a couvert tout le cours pour
+	que les stagiaires finissent à leur rythme les TPs.
+
+###########################
+# 24-10-2012 : J. Landuré #
+###########################
+mais aussi le 19/11/12 et 28/11/12
+
+Jour 1
+	09h30 -> 12h30 : chap 00, chap 01, chap 02, TP1
+	13h30 -> 17h30 : chap 03, début chap04, TP2, fin chap 04, TP3, chap 05, TP4
+Jour 2
+	09h00 -> 12h30 : chap 06, TP5, chap 07, TP6 (Evènements)
+	14h00 -> 17h00 : fin TP6, chap 08, TP7 (Internationalisation), chap 09, début TP8 (TP 8.2)
+Jour 3
+	09h00 -> 12h30 : fin TP8 (TP8.3), chap 10, TP9 (Internationalisation)
+	14h00 -> 17h00 : chap 11, chap 12, TP10 (Traitements longs), démo maven, démo code splitting
+	
+Notes
+	Groupe homogène. Le TP est fini rapidement.
+	Démo explicative le 2ème jour du framework Editor (pour remplir le formulaire EcranOperateur)
+	Démo maven (création du projet Resanet maven et copie des sources créées)
+	S'il reste du temps : Démo explicative le dernier après-midi de CodeSplitting avec le rapport de compilation

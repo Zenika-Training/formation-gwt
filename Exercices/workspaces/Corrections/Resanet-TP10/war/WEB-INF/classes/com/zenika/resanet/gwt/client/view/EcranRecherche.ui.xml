@@ -1,0 +1,51 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui"
+  xmlns:d="urn:import:com.google.gwt.user.datepicker.client" xmlns:m="urn:import:com.zenika.resanet.gwt.client.view.menu"
+  xmlns:c="urn:import:com.google.gwt.user.cellview.client">
+  <ui:with type="com.zenika.resanet.gwt.client.i18n.constants.AppConstantes" field="constants"></ui:with>
+  <ui:style>
+    .container {
+    	margin-left: auto;
+    	margin-right: auto;
+    	width: 600px;
+    }
+    
+    .leftPanel {
+    	width: 50%;
+    	float: left;
+    }
+    
+    .rightPanel {
+    	width: 50%;
+    	float: right;
+    }
+    
+    .item {
+    	width: 100%;
+    	height: 30px;
+    }
+  </ui:style>
+  <g:FlowPanel>
+    <m:Menu />
+    <g:FlowPanel addStyleNames="{style.container}">
+      <g:FlowPanel addStyleNames="{style.leftPanel}">
+        <g:Label text="{constants.fromcity}" addStyleNames="{style.item}" />
+        <g:Label text="{constants.tocity}" addStyleNames="{style.item}" />
+        <g:Label text="{constants.date}" addStyleNames="{style.item}" />
+      </g:FlowPanel>
+      <g:FlowPanel addStyleNames="{style.rightPanel}">
+        <g:FlowPanel addStyleNames="{style.item}">
+          <g:ListBox ui:field="fromCityList" />
+        </g:FlowPanel>
+        <g:FlowPanel addStyleNames="{style.item}">
+          <g:ListBox ui:field="toCityList" />
+        </g:FlowPanel>
+        <g:FlowPanel addStyleNames="{style.item}">
+          <d:DateBox ui:field="dateBox" />
+        </g:FlowPanel>
+      </g:FlowPanel>
+      <g:Button ui:field="searchButton" text="{constants.search}" />
+      <c:CellTable ui:field="resultsTable" />
+    </g:FlowPanel>
+  </g:FlowPanel>
+</ui:UiBinder> 

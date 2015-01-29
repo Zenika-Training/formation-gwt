@@ -1,0 +1,5 @@
+* Dans la partie CodeSplitting chapitre 12, parler des AsyncProxy et AsyncProvider
+* Parler un peu des addclickhandler dans le chapitre widgets afin de leur permettre de le faire en tp (fait je crois, a verifier)
+
+* Ajouter la pagination dans l'exemple des cell table et peut etre dans le tp en rajoutant beaucoup de donnees
+* Modifier le CellTable 2/3 car en fait on a pas besoin du data provider mais juste de la methode setRowData beaucoup plus simple (a voir le dataprovider pour la pagination)

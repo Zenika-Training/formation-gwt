@@ -1,0 +1,2 @@
+serviceClass: com.zenika.resanet.gwt.client.LoginService
+path: 35533B3A3C413E313C339B2F25FB4DEE.gwt.rpc
