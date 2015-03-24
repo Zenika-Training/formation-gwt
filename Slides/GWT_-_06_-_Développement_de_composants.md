@@ -2,9 +2,6 @@
 
 <!-- .slide: class="page-title" -->
 
-
-
-
 Notes :
 
 
@@ -60,11 +57,21 @@ Notes :
 ## Exemple d'héritage (2/2)
 
 
-![](ressources/images/GWT_-_06_-_Développement_de_composants-100000000000032000000258604230C4.png)
+<figure>
+    <img src="ressources/images/GWT_-_06_-_Développement_de_composants-100000000000032000000258604230C4.png" width="35%"/>
+</figure>
+
+Après définition de la classe CSS: 
+
+```css
+.gwt-TextBox-focused{background-color:lightblue;}
+```
+
+<figure>
+    <img src="ressources/images/GWT_-_06_-_Développement_de_composants-1000000000000320000002587EC29506.png" width="35%"/>
+</figure>
 
 
-![](ressources/images/GWT_-_06_-_Développement_de_composants-1000000000000320000002587EC29506.png)
-Après définition de la classe CSS:.gwt-TextBox-focused{background-color:lightblue;}
 Notes :
 
 
@@ -74,8 +81,19 @@ Notes :
 
 - Créer un widget spécialisé qui encapsule un ou plusieurs autres widgets
 - Pour cela, GWT fournit la classe Composite
+```java 
+public class MonWidgetComposite extends Composite {
+	public MonWidgetComposite(){ 
+		FlowPanel mainElement = new FlowPanel();
+		…
+		this.initWidget(mainElement);
+	}
+	…
+}
+```
 - Permet de masquer les méthodes internes du composant encapsulé
-- Facilite l'évolutivité en permettant de changer l'implémentation interne du Composite sans impacter les autres widgetspublicclassMonWidgetCompositeextendsComposite {publicMonWidgetComposite(){FlowPanel mainElement =newFlowPanel();…this.initWidget(mainElement);}…}
+- Facilite l'évolutivité en permettant de changer l'implémentation interne du Composite sans impacter les autres widgets
+
 Notes :
 
 
@@ -119,18 +137,8 @@ Notes :
 - Inconvénients
 	- Code relativement difficile à écrire et à maintenir
 	- Coûteux en temps sur un petit projet
+	
 Notes :
-
-
-
-
-
-
-![](ressources/images/GWT_-_06_-_Développement_de_composants-10000201000001000000010037A4F079.png)
-## TP 5
-
-Notes :
-
 
 
 
@@ -138,4 +146,4 @@ Notes :
 
 
 
-<!-- .slide: class="page-tp1" -->
+<!-- .slide: class="page-tp5" -->

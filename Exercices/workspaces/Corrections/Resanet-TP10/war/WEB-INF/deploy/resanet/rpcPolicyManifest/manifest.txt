@@ -1,3 +1,0 @@
-# Module resanet
-# RPC service class, partial path of RPC policy file
-com.zenika.resanet.gwt.client.LoginService, 35533B3A3C413E313C339B2F25FB4DEE.gwt.rpc

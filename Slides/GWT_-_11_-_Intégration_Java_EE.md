@@ -1,10 +1,7 @@
-# Intégration
+# Intégration Java EE
 
 <!-- .slide: class="page-title" -->
 
-
-
-## Java EE
 
 Notes :
 
@@ -54,50 +51,102 @@ Notes :
 
 
 
-## Intégration Spring – Mise en œuvre (1/4)
+## Intégration Spring – Mise en œuvre (1/5)
 
 - Éditer le fichier web.xml
 
 - 
 	- Déclaration du ContextLoaderListener de Spring
+	```xml
+	<listener>
+		<listener-class>
+		org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	```
 	- Déclaration d'une servlet unique, ayant le rôle de front controller
-	- Mapping de la servlet sur toutes les url de type *.rpc<listener><listener-class>org.springframework.web.context.ContextLoaderListener</listener-class></listener><servlet><servlet-name>dispatcher</servlet-name><servlet-class>org.gwtrpcspring.RemoteServiceDispatcher</servlet-class></servlet><servlet-mapping><servlet-name>dispatcher</servlet-name><url-pattern>*.rpc</url-pattern></servlet-mapping>
+	```
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.gwtrpcspring.RemoteServiceDispatcher</servlet-class>
+	</servlet>
+	```
+
+
 Notes :
 
 
 
 
-## Intégration Spring – Mise en œuvre (2/4)
+## Intégration Spring – Mise en œuvre (2/5)
 
-- L'interface du service@RemoteServiceRelativePath("monService.rpc")public interfaceMonServiceextendsRemoteService {publicString maMethode(String s);}Le service doit toujours implémenter l'interfaceRemoteServiceSpécifier une url avec l'extension.rpccomme défini dans le web.xml
+- Éditer le fichier web.xml  
+	- Mapping de la servlet sur toutes les url de type *.rpc
+
+	```
+		<servlet-mapping>
+			<servlet-name>dispatcher</servlet-name>
+			<url-pattern>*.rpc</url-pattern>
+		</servlet-mapping>
+	```
+
+Notes : 
+
+
+
+
+## Intégration Spring – Mise en œuvre (3/5)
+
+- L'interface du service
+![](ressources/images/11_jee/spring.png)
+
+
 Notes :
 
 
 
 
-## Intégration Spring – Mise en œuvre (3/4)
+## Intégration Spring – Mise en œuvre (4/5)
 
 - L'implémentation du service
 	- Tout bean Spring peut être exposé via l’annotation @Service. Avec l'annotation il n'est plus nécessaire de déclarer le bean dans le fichier xml de Spring
-	- L'implémentation du service n'a plus besoin d'hériter de la classe RemoteServiceServlet@Servicepublicclass MonServiceImplimplementsMonService {publicString maMethode(String s){return"Bonjour tout le monde";}}
+	- L'implémentation du service n'a plus besoin d'hériter de la classe RemoteServiceServlet
+
+```java
+	@Service
+	public class MonServiceImpl implements MonService {
+		public String maMethode(String s){
+			return"Bonjour tout le monde";
+		}
+	}
+```	
 Notes :
 
 
 
 
-## Intégration Spring – Mise en œuvre (4/4)
+## Intégration Spring – Mise en œuvre (5/5)
 
 - Le fichier de configuration Spring
 	- Spring avec annotations
+	```
+	<?xmlversion="1.0"encoding="UTF-8"?>
+	<beans…>
+		<context:annotation-config/>
+		<context:component-scanbase-package="com.zenika.xxx.server"/>
+	</beans>
+	```
 	- Spring sans annotations
-- Une fois configurés, tous les appels sur les urls se terminant par *.rpc seront « dispatchés » vers le bean Spring correspondant<?xmlversion="1.0"encoding="UTF-8"?><beans…><context:annotation-config/><context:component-scanbase-package="com.zenika.xxx.server"/></beans><?xmlversion="1.0"encoding="UTF-8"?><beans…><beanid="monService"class="com.zenika.xxxx.MonServiceImpl"/></beans>
+	```
+	<?xmlversion="1.0"encoding="UTF-8"?>
+	<beans…>
+		<bean id="monService"class="com.zenika.xxxx.MonServiceImpl"/>
+	</beans>
+	```
+- Une fois configurés, tous les appels sur les urls se terminant par *.rpc seront « dispatchés » vers le bean Spring correspondant.
 Notes :
 
 
 
 
 <!-- .slide: class="page-questions" -->
-
-
-
-<!-- .slide: class="page-tp1" -->

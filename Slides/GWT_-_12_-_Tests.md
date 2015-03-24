@@ -2,11 +2,7 @@
 
 <!-- .slide: class="page-title" -->
 
-
-
-
 Notes :
-
 
 
 
@@ -104,21 +100,22 @@ Notes :
 
 - Pour mettre en place une écoute des messages d'alerte
 - A définir avant de charger la page
-	- List<String> collectedAlerts = new ArrayList<String>();webClient.setAlertHandler(new CollectingAlertHandler(collectedAlerts));
+
+```java
+	List<String> collectedAlerts = new ArrayList<String>();
+	webClient.setAlertHandler(
+		new CollectingAlertHandler(collectedAlerts));
+```
+
 - Contrôler le contenu de la liste des messages d'alerte
-	- List<String> expectedAlerts = Collections.singletonList("...");Assert.assertEquals(expectedAlerts, collectedAlerts);
-Notes :
 
-
-
-
-
-
-![](ressources/images/GWT_-_12_-_Tests-10000201000001000000010037A4F079.png)
-## TP 10
+```java
+	List<String> expectedAlerts =
+		 Collections.singletonList("...");
+	Assert.assertEquals(expectedAlerts, collectedAlerts);
+```
 
 Notes :
-
 
 
 
@@ -126,4 +123,4 @@ Notes :
 
 
 
-<!-- .slide: class="page-tp1" -->
+<!-- .slide: class="page-tp10" -->
