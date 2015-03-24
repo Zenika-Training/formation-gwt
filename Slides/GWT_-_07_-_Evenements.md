@@ -2,11 +2,7 @@
 
 <!-- .slide: class="page-title" -->
 
-
-
-
 Notes :
-
 
 
 
@@ -24,7 +20,8 @@ Notes :
 
 
 
-## Événements parent-enfant
+# Événements parent-enfant
+<!-- .slide: class="page-title" -->
 
 Notes :
 
@@ -36,14 +33,41 @@ Notes :
 - Tout événement personnalisé doit être associé à un Handler
 - Un Handler d'événement
 	- Doit hériter de EventHandler
-	- Fournit une/plusieurs méthodes permettant d'associer une action à un événement donnépublicinterfaceLoginHandlerextendsEventHandler {voidonLogin(LoginEvent event);}
+	- Fournit une/plusieurs méthodes permettant d'associer une action à un événement donné
+```java
+	public interface LoginHandler extends EventHandler {
+		void onLogin(LoginEvent event);
+	}
+```
 Notes :
 
 
 
 
 ## Événement personnalisé (1/2)
-publicclassLoginEventextendsGwtEvent<LoginHandler> {publicstaticType<LoginHandler>TYPE=newType<LoginHandler>();privateUtilisateurutilisateur=null;publicLoginEvent(Utilisateur utilisateur) {this.utilisateur= utilisateur;}publicUtilisateur getUtilisateur() {returnutilisateur;}@OverridepublicfinalType<LoginHandler> getAssociatedType() {returnTYPE;}@Overrideprotectedvoiddispatch(LoginHandler handler) {handler.onLogin(this);}}
+```java
+public class LoginEvent extends GwtEvent<LoginHandler> {
+	public static Type<LoginHandler> TYPE =
+		 new Type<LoginHandler>();
+
+	private Utilisateur utilisateur = null;
+
+	public LoginEvent(Utilisateur utilisateur) {
+		this.utilisateur= utilisateur;
+	}
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+	@Override
+	public final Type<LoginHandler> getAssociatedType() {
+		return TYPE;
+	}
+	@Override
+	protected void dispatch(LoginHandler handler) {
+	handler.onLogin(this);
+	}
+}
+```
 Notes :
 
 
@@ -65,13 +89,29 @@ Notes :
 ## Composant personnalisé
 
 - Le composant peut envoyer un événement qui est transmis aux handlers enregistrés (remarque : tout widget peut envoyer un événement)
-- Le composant parent peut enregistrer un handler afin de réagir aux événements du composant filspublicclassParentComponentextendsComposite {publicParentComponent() {LoginComponent component =newLoginComponent();component.addHandler(newLoginHandler() {@OverridepublicvoidonLogin(LoginEvent event) {Window.alert("L'utilisateur s'est connecté !");}},LoginEvent.TYPE);publicvoidlogin(Operateur operateur) {fireEvent(newLoginEvent(operateur));}
+```java
+public void login(Operateur operateur) { 
+	fireEvent( new LoginEvent(operateur));
+}
+```
+- Le composant parent peut enregistrer un handler afin de réagir aux événements du composant fils
+```java
+public class ParentComponent extends Composite {
+	public ParentComponent() {
+		LoginComponent component = new LoginComponent();
+		component.addHandler( new LoginHandler() {
+			public void onLogin(LoginEvent event) {
+				Window.alert("L'utilisateur s'est connecté !");
+			}
+		},LoginEvent.TYPE);
+```
+
 Notes :
 
 
 
-
-## Événements entre modules
+<!-- .slide: class="page-title" -->
+# Événements entre modules
 
 Notes :
 
@@ -92,54 +132,10 @@ Notes :
 
 - L'enchaînement des vues/écrans peut conduire à la mise en œuvre d'une navigation de type « spaghetti »
 
-```
-Commande
-```
+<figure>
+    <img src="ressources/images/07_event/spaghetti.png" width="80%"/>
+</figure>
 
-```
-Commande
-```
-
-```
-Commande
-```
-
-```
-Commande
-```
-
-```
-Commande
-```
-
-```
-Voyage
-```
-
-```
-Utilisateur
-```
-
-```
-Écran
-Login
-```
-
-```
-Écran
-Voyages
-```
-
-```
-Écran
-Commandes
-```
-
-```
-Écran
-Créer
-Commande
-```
 
 Notes :
 
@@ -150,59 +146,10 @@ Notes :
 
 - Afin de pallier l'effet « spaghetti », il est conseillé de mettre en place un bus d'événements
 
-```
-Commande
-```
+<figure>
+    <img src="ressources/images/07_event/spaghetti2.png" width="80%"/>
+</figure>
 
-```
-Commande
-```
-
-```
-Commande
-```
-
-```
-Commande
-```
-
-```
-Commande
-```
-
-```
-Voyage
-```
-
-```
-Utilisateur
-```
-
-```
-Écran
-Login
-```
-
-```
-Écran
-Voyages
-```
-
-```
-Écran
-Commandes
-```
-
-```
-Écran
-Créer
-Commande
-```
-
-```
-Event
-Bus
-```
 
 Notes :
 
@@ -224,28 +171,33 @@ Notes :
 
 
 ## EventBus
-publicinterfaceLoginHandlerextendsEventHandler {voidonLogin(LoginEvent event);}// INSTANCE UNIQUE POUR TOUTE L'APPLICATIONpublic static finalEventBusEVENT_BUS=newSimpleEventBus();EVENT_BUS.addHandler(LoginEvent.TYPE,newLoginHandler() {@OverridepublicvoidonLogin(LoginEvent event) {// TRAITEMENT SUITE A LOGIN}});
-
-![](ressources/images/GWT_-_07_-_Evenements-1000020100000080000000801B084A46.png)
-…EVENT_BUS.fireEvent(newLoginEvent(utilisateur));…
-
-```
-Module 2
+```java
+public interface LoginHandler extends EventHandler {
+	void onLogin(LoginEvent event);
+}
 ```
 
+```java
+// INSTANCE UNIQUE POUR TOUTE L'APPLICATION
+public static final EventBus EVENT_BUS = new SimpleEventBus();
+EVENT_BUS.addHandler( LoginEvent.TYPE,new LoginHandler() {
+	@Override 
+	public void onLogin(LoginEvent event) {
+		// TRAITEMENT SUITE A LOGIN
+	}
+});
 ```
-Module 1
+<figure style="position: absolute; top: 130px; right: 50%;">
+    <img src="ressources/images/GWT_-_07_-_Evenements-1000020100000080000000801B084A46.png"/>
+</figure>
+
+
+```java
+…
+EVENT_BUS.fireEvent(newLoginEvent(utilisateur));
+…
 ```
 
-Notes :
-
-
-
-
-
-
-![](ressources/images/GWT_-_07_-_Evenements-10000201000001000000010037A4F079.png)
-## TP 6
 
 Notes :
 
@@ -256,4 +208,4 @@ Notes :
 
 
 
-<!-- .slide: class="page-tp1" -->
+<!-- .slide: class="page-tp6" -->

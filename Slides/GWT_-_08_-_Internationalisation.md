@@ -1,10 +1,7 @@
-# Internationali-sation
+# Internationalisation
 
 <!-- .slide: class="page-title" -->
 
-
-
-## i18nements
 
 Notes :
 
@@ -25,16 +22,11 @@ Notes :
 
 
 
-
 ## Configuration du module
 
+- Déclaration des locales gérées par l'application
 
 ![](ressources/images/GWT_-_08_-_Internationalisation-1000000000000214000000E99DAB289C.png)
-Déclaration des locales gérées par l'application
-
-```
-
-```
 
 Notes :
 
@@ -45,8 +37,19 @@ Notes :
 
 - Par ordre de résolution
 	- Dans les paramètres de l'url HTTP
+	```
+	http://127.0.0.1:8888/Resanet.html?locale=fr
+	```
 	- Dans les meta de la host page html
-	- Dans le fichier de configuration du module GWThttp://127.0.0.1:8888/Resanet.html?locale=fr<metaname="gwt:property"content="locale=fr"><set-property-fallbackname="locale"value="fr">
+	```
+	<metaname="gwt:property"content="locale=fr">
+
+	```
+	- Dans le fichier de configuration du module GWT
+	
+	```
+	<set-property-fallbackname="locale"value="fr">
+	```
 Notes :
 
 
@@ -69,12 +72,25 @@ Notes :
 ## Constants (1/2)
 
 - L'interface doit se trouver dans le même package que les fichiers .properties
-- ExemplepublicinterfaceAppConstantesextendscom.google.gwt.i18n.client.Constants {publicString lundi();publicString mardi();}
 
-![](ressources/images/GWT_-_08_-_Internationalisation-10000000000000830000002DB37638D3.png)
+<figure style="display: block; float: left; margin: 30px 0; width: 40%">
+    <img src="ressources/images/GWT_-_08_-_Internationalisation-10000000000000EE000000479C65657A.png" style="margin: auto;"/>
+</figure>
 
+<figure style="display: block; float: left; margin: 30px 0; width: 40%">
+    <img src="ressources/images/GWT_-_08_-_Internationalisation-10000000000000830000002DB37638D3.png" style="margin: auto;"/>
+</figure>
 
-![](ressources/images/GWT_-_08_-_Internationalisation-10000000000000EE000000479C65657A.png)
+<!-- .element: style="clear: left;" -->
+- Exemple
+
+```
+public interface AppConstantes 
+	extends com.google.gwt.i18n.client.Constants {
+	public String lundi();
+	public String mardi();
+}
+```
 
 Notes :
 
@@ -84,7 +100,19 @@ Notes :
 ## Constants (2/2)
 
 - Récupération d'une constante dans le code client
-- Si l'interface est une sous classe de ConstantsWithLookup, il est possible d'accéder aux valeurs via leur clé et la méthode getStringprivatestaticfinalAppConstantesCONSTANTES=GWT.create(AppConstantes.class);…String lundi =CONSTANTES.lundi();String lundi =CONSTANTES.getString("lundi");
+
+```java
+private static final AppConstantes CONSTANTES = 
+	GWT.create(AppConstantes.class);
+…
+String lundi =CONSTANTES.lundi();
+```
+
+- Si l'interface est une sous classe de ConstantsWithLookup, il est possible d'accéder aux valeurs via leur clé et la méthode getString
+
+```java
+String lundi =CONSTANTES.getString("lundi");
+```
 Notes :
 
 
@@ -93,12 +121,19 @@ Notes :
 ## Messages (1/2)
 
 - L'interface doit se trouver dans le même package que les fichiers .properties
-- ExemplepublicinterfaceAppMessagesextendscom.google.gwt.i18n.client.Messages {publicString messageA(String argA, String argB, String argC);}
 
 ![](ressources/images/GWT_-_08_-_Internationalisation-10000000000000D7000000447C43D382.png)
 
-
 ![](ressources/images/GWT_-_08_-_Internationalisation-10000000000001E70000002D24D00058.png)
+
+- Exemple
+
+```java
+public interface AppMessages
+	 extends com.google.gwt.i18n.client.Messages {
+	public String messageA(String argA, String argB, String argC);
+}
+```
 
 Notes :
 
@@ -107,7 +142,15 @@ Notes :
 
 ## Messages (2/2)
 
-- Récupération d'un messages paramétré dans le code clientprivatefinal staticAppMessagesMESSAGES=GWT.create(AppMessages.class);…String message =MESSAGES.messageA(civilite, nom, application);
+- Récupération d'un messages paramétré dans le code client
+
+```java
+private final static AppMessages MESSAGES = 
+	GWT.create(AppMessages.class);
+…
+String message = MESSAGES.messageA(civilite, nom, application);
+```
+
 Notes :
 
 
@@ -128,7 +171,23 @@ Notes :
 
 - Pour cela, GWT fournit la classe LocaleInfo
 	- Connaitre la locale courante
-	- Récupérer la liste des locales disponiblesif(LocaleInfo.getCurrentLocale().isRTL()) {...}for(String localeName : LocaleInfo.getAvailableLocaleNames()) {String name = LocaleInfo.getLocaleNativeDisplayName(localeName);...}
+
+```java
+if(LocaleInfo.getCurrentLocale().isRTL())
+{
+	...
+}
+```
+	- Récupérer la liste des locales disponibles
+
+```java
+for(String localeName : LocaleInfo.getAvailableLocaleNames()) {
+	String name = 
+		LocaleInfo.getLocaleNativeDisplayName(localeName);
+	...
+}
+```
+
 Notes :
 
 
@@ -138,18 +197,22 @@ Notes :
 
 - Les formes plurielles
 	- La grammaire d'un langage impose parfois d'avoir des messages différents selon une valeur d'un attribut numérique
-	- Il suffit ensuite de définir les différents messages dans le fichier de properties
-	- Plus d'informations dans la documentation de GWThttp://www.gwtproject.org/doc/latest/DevGuideI18nPluralForms.htmlpublic classAppMessagesextendsMessages {String cartItems(@PluralCountintitemCount);}cartItems=Votre panier contient {0,number} articles.cartItems[none]=Votre panier ne contient aucun article.cartItems[one]=Votre panier contient 1 article....
-Notes :
+	
+	```java
+		public class AppMessages extends Messages {
+			String cartItems(@PluralCount int itemCount);
+		}
+	```
 
+	- Il suffit ensuite définir les différents messages dans le fichier de properties
+	```
+		cartItems=Votre panier contient {0,number} articles.
+		cartItems[none]=Votre panier ne contient aucun article.
+		cartItems[one]=Votre panier contient 1 article....
+	```
 
-
-
-
-
-![](ressources/images/GWT_-_08_-_Internationalisation-10000201000001000000010037A4F079.png)
-## TP 7
-
+	- Plus d'informations dans la documentation de GWT http://www.gwtproject.org/doc/latest/DevGuideI18nPluralForms.html
+	
 Notes :
 
 
@@ -159,4 +222,4 @@ Notes :
 
 
 
-<!-- .slide: class="page-tp1" -->
+<!-- .slide: class="page-tp7" -->

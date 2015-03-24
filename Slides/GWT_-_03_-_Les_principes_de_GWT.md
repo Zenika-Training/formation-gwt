@@ -4,12 +4,6 @@
 
 
 
-
-Notes :
-
-
-
-
 ## Différentes utilisations de GWT
 
 - Il existe deux types d'utilisation de GWT pour une application Web
@@ -48,60 +42,10 @@ Notes :
 
 
 ## L'approche Web 2.0 « Light » (3/3)
-Le serveurrenvoie le contenu HTML correspondant à l'URLLa page HTMLcharge le module GWT, qui enrichit celle-ci
 
-```
+![](ressources/images/03_principe/webLight.png)
 
-```
-
-```
-GWT3
-```
-
-```
-GWT2
-```
-
-```
-GWT1
-```
-
-```
-
-```
-
-```
-Slot3
-```
-
-```
-Slot2
-```
-
-```
-Slot1
-```
-HTML retourné par le serveurEmplacements prévus pour GWT
-
-```
-L'utilisateur clique
-sur un lien
-ou valide un formulaire
-```
-
-```
-Changement d'URL
-```
-
-```
-
-```
-Navigation utilisateurChangementd'écran
-
-```
-
-```
-Changementd'URL de pageRemarque : en mode « Light », l'URL de l'application change après chaque action, ce qui entraîne un rechargement complet de la vue
+Remarque : en mode « Light », l'URL de l'application change après chaque action, ce qui entraîne un rechargement complet de la vue
 Notes :
 
 
@@ -138,32 +82,7 @@ Notes :
 
 ## L'approche Web 2.0 « Rich Client » (3/3)
 
-```
-
-```
-
-```
-GWT Widget
-```
-Changement de Widget GWTNavigation utilisateur
-
-```
-
-```
-
-```
-
-```
-
-```
-Slot
-Principal
-```
-Chargement de la host page HTMLChargement du module GWTChangement d'écran↔changement de Widget GWTDébutURL de page stable
-
-```
-
-```
+![](ressources/images/03_principe/richClient.png)
 Remarque : en mode « Rich Client », l'URL de l'application ne change jamais→l'application est chargée une seule fois (au démarrage)
 Notes :
 
@@ -198,42 +117,15 @@ Notes :
 
 ## La Composition
 
-```
+<figure>
+    <img src="ressources/images/03_principe/composition.png" width="80%"/>
+</figure>
 
-```
-
-```
-
-```
-GWT Widget
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-GWT W
-```
-
-```
-GWT W
-```
-GWT WidgetHost Page HTMLGWT WHorizontalPanel hp =newHorizontalPanel()Label lNom =newLabel("Nom :");conteneur.add(lNom);TextBox tNom =newTextBox();hp.add(tNom);Permet une architecture orientée composant et développée en couches
+Permet une architecture orientée composant et développée en couches
 
 - Augmente la réutilisation et l'évolutivité
 - Facilite la maintenance
 
-```
-GWT W
-```
 
 Notes :
 
@@ -242,26 +134,8 @@ Notes :
 
 ## L'encapsulation (1/2)
 
-- UIObjet : racine des Widgets GWT
+![](ressources/images/03_principe/encapsulation.png)
 
-```
-UIObject
-```
-
-```
-Objet JavaScript
-```
-Classes Java
-
-```
-Element
-```
-
-```
-DOM
-élément
-```
-NavigateurAvatar/vueVueContrôleurencapsulation
 Notes :
 
 
@@ -284,70 +158,12 @@ Notes :
 
 - La synchronisation modèle métier/IHM
 
-```
+<figure>
+    <img src="ressources/images/03_principe/databinding.png" width="80%"/>
+</figure>
+![]()
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-GWT W
-```
-
-```
-GWT W
-```
-
-```
-GWT W
-```
-
-```
-GWT W
-```
-
-```
-GWT W
-```
-
-```
-GWT W
-```
-
-```
-GWT W
-```
-champ 1champ 2champ 3
-
-```
-GWT W
-val 1
-```
-
-```
-GWT W
-val 2
-```
-
-```
-GWT W
-val 3
-```
-
-```
-
-```
-modèle métierConstitue l'essentiel du code à écrire pour concevoir les écrans, il peut être implémenté de multiples façons
+Constitue l'essentiel du code à écrire pour concevoir les écrans, il peut être implémenté de multiples façons
 Notes :
 
 
@@ -355,49 +171,8 @@ Notes :
 
 ## Le modèle évènementiel
 
-- Le couple émetteur(s) / récepteur(s)
 
-```
-
-```
-
-```
-
-```
-GWT Widget
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-GWT W
-```
-
-```
-GWT W
-```
-
-```
-GWT W
-```
-GWT WidgetHost Page HTMLGWT Wécouteur/contrôleuraction sur l'IHM
-
-```
-émetteur
-```
-
-```
-click
-```
+![](ressources/images/03_principe/event.png)
 
 Notes :
 
@@ -408,18 +183,9 @@ Notes :
 
 - Les catégories d'événements possibles
 	- Natif (ie. DOM)
-		- 
-			- 
-				- Click
-				- Keyboard
-				- Mouse
-				- Focus
+		- Click , Keyboard, Mouse, Focus
 	- Logique
-		- 
-			- 
-				- Resize
-				- Close
-				- Highlight
+		- Resize, Close, Highlight
 - Chaque type de Widget ne peut émettre qu'un sous-ensemble d'événements parmi ceux possibles
 	- Déduit de l'élément du DOM HTML correspondant
 Notes :
@@ -431,8 +197,8 @@ Notes :
 
 - Connaître les événements émis par un Widget → Liste définie par les interfaces de typeHas*Handlersqu'implémente le widget
 
-![](ressources/images/GWT_-_03_-_Les_principes_de_GWT-100000000000026D00000044664AE091.png)
-Abonnement aux événementsMouseAbonnement aux événementsClick
+![](ressources/images/03_principe/widgetEvent.png)
+
 Notes :
 
 
@@ -440,35 +206,21 @@ Notes :
 
 ## Le couple Émetteur/Récepteur
 
-```
-#addClickHandler
-```
-
-```
-Button
-```
-
-```
-MyWidget
-```
-
-```
-ClickHandler
-#onClick
-```
-button.addClickHandler(newClickHandler() {publicvoidonClick(ClickEvent event) {// TRAITEMENT A EFFECTUER// SUR UN CLIC BOUTON}});Émetteur de l'événement
-
-```
-Button
+![](ressources/images/03_principe/emetteurRecepteur.png)
+Abonnement : 
+```java
+button.addClickHandler(
+	new ClickHandler() {
+		public void onClick(ClickEvent event) {
+			// TRAITEMENT A EFFECTUER
+			// SUR UN CLIC BOUTON
+		}
+});
 ```
 
-```
-click
-```
-Abonnement
 
 ![](ressources/images/GWT_-_03_-_Les_principes_de_GWT-10000201000000300000003078EB268F.png)
-Récepteur de l'événement
+
 Notes :
 
 
@@ -477,15 +229,11 @@ Notes :
 ## S'abonner à un événement
 
 
-![](ressources/images/GWT_-_03_-_Les_principes_de_GWT-1000000000000232000001BB71951303.png)
-addHandler→s'abonner à n'importe quel type d'événementaddDomHandler→s'abonner à un événement natif
+![](ressources/images/03_principe/addEvent.png)
+
 Notes :
 
 
 
 
 <!-- .slide: class="page-questions" -->
-
-
-
-<!-- .slide: class="page-tp1" -->

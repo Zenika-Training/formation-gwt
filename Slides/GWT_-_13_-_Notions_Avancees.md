@@ -1,16 +1,13 @@
 # Notions avancées
-
 <!-- .slide: class="page-title" -->
-
-
 
 
 Notes :
 
 
 
-
-## Traitements longs
+# Traitements longs
+<!-- .slide: class="page-title" -->
 
 Notes :
 
@@ -44,9 +41,32 @@ Notes :
 
 
 ## Timer (2/2)
-packagecom.zenika.gwt.client;…publicclassTestimplementsEntryPoint {publicvoidonModuleLoad() {Timer timer =newExempleTimer();timer.schedule(10000);}privatestaticclassExempleTimerextendsTimer {privatelongtemps= System.currentTimeMillis();@Overridepublicvoidrun() {temps= System.currentTimeMillis() -temps;Window.alert("Il s'est écoulé "+temps/ 1000 +" secondes");}}}
 
-![](ressources/images/GWT_-_13_-_Notions_Avancees-10000000000001510000008FB63AD2B0.png)
+```java
+package com.zenika.gwt.client;
+…
+public class Test implements EntryPoint {
+	public void onModuleLoad() {
+		Timer timer =new ExempleTimer();
+		timer.schedule(10000);
+	}
+	private static class ExempleTimer extends Timer {
+		private long temps= System.currentTimeMillis();
+		@Override
+		public void run() {
+			temps= System.currentTimeMillis() -temps;
+			Window.alert("Il s'est écoulé "+temps/ 1000 
+				+" secondes");
+		}
+	}
+}
+```
+
+<figure style="position: absolute; bottom: 30px; right: 0;">
+    <img src="ressources/images/GWT_-_13_-_Notions_Avancees-10000000000001510000008FB63AD2B0.png"/>
+</figure>
+
+![]()
 
 Notes :
 
@@ -79,18 +99,42 @@ Notes :
 
 
 
-## Scheduler
-(3/3)packagecom.zenika.gwt.client;…publicclassTestimplementsEntryPoint {publicvoidonModuleLoad() {finalVerticalPanel panel =newVerticalPanel();RootLayoutPanel.get().add(panel);Scheduler.get().scheduleIncremental(newRepeatingCommand() {privateintindex= 0;@Overridepublicbooleanexecute() {panel.add(newLabel("Label "+ ++index));returnindex< 1000;// si la limite est non atteinte// on continue le traitement}});}}
+## Scheduler (3/3)
 
-![](ressources/images/GWT_-_13_-_Notions_Avancees-10000000000000360000013127633400.png)
+```java
+packagecom.zenika.gwt.client;
+…
+public class Test implements EntryPoint {
+	public void onModuleLoad() {
+		final VerticalPanel panel = new VerticalPanel();
+		RootLayoutPanel.get().add(panel);
+		Scheduler.get().scheduleIncremental(
+			new RepeatingCommand() {
+				private int index= 0;
+				@Override
+				public boolean execute() {
+					panel.add(newLabel("Label "+ ++index));
+					// si la limite est non atteinte
+					// on continue le traitement
+					returnindex< 1000;
+				}
+			});
+		}
+	}
+```
+
+<figure style="position: absolute; bottom: 80px; right: 30px;">
+    <img src="ressources/images/GWT_-_13_-_Notions_Avancees-10000000000000360000013127633400.png" />
+</figure>
+![]()
 
 Notes :
 
 
 
 
-## API ClientBundle
-
+# API ClientBundle
+<!-- .slide: class="page-title" -->
 Notes :
 
 
@@ -128,20 +172,21 @@ Notes :
 	- ImageResource
 	- CssResource
 - Module à importer
-	- <inherits name="com.google.gwt.resources.Resources" />
+	
+	 ```<inherits name="com.google.gwt.resources.Resources" />```
 Notes :
 
 
 
 
-## Code Splitting
-
+# Code Splitting
+<!-- .slide: class="page-title" -->
 Notes :
 
 
 
 
-## Code Splitting (1/5)
+## Code Splitting (1/4)
 
 - GWT 1.x → le compilateur génère un fichier Javascript monolithique
 - Selon la taille de l'application finale, le fichier généré peut atteindre plusieurs Mo
@@ -151,7 +196,7 @@ Notes :
 
 
 
-## Code Splitting (2/5)
+## Code Splitting (2/4)
 
 - GWT 2.0 introduit le mécanisme de chargement à la demande appelé aussiCode Splitting
 - L'idée
@@ -165,7 +210,7 @@ Notes :
 
 
 
-## Code Splitting (3/5)
+## Code Splitting (3/4)
 
 - Les différents types de fragments
 	- FragmentinitialIdentifié par le fichier<md5Key>.cache.htmlet contient le code nécessaire au chargement initial de l'application
@@ -177,7 +222,7 @@ Notes :
 
 
 
-## Code Splitting (4/5)
+## Code Splitting (4/4)
 
 - Placer un point de rupture avec l'intructionGWT.runAsync()
 
@@ -188,18 +233,16 @@ Notes :
 
 
 
+<!-- .slide: class="page-tp11" -->
 
-
-
-![](ressources/images/GWT_-_13_-_Notions_Avancees-10000201000001000000010037A4F079.png)
-## TP 11
 
 Notes :
 
 
 
 
-## JSNI
+# JSNI
+<!-- .slide: class="page-title" -->
 
 Notes :
 
@@ -245,41 +288,53 @@ Notes :
 
 
 
-## Restrictions et avertissements
+## Restrictions et avertissements (1/2)
 
 - Mécanisme puissant qui permet d'avoir un contrôle total sur un comportement donné
 - Inconvénient : le code JavaScript est moins homogène et moins portable que le code généré lors de la compilation
 	- Rappel: GWT assure par défaut une non-adhérence et fonctionnement robuste sur la plupart des navigateurs
 	- Risque de fuite mémoire
+
+Notes :
+
+
+
+## Restrictions et avertissements (2/2)
+
 - Conclusion
 	- A utiliser de façon parcimonieuse
 	- Choisir le bon design du composant final (type, composition, interface)
 	- Faire des tests poussés du code (JavaScript) intégré
+
 Notes :
 
 
 
 
-## Écriture d'une méthode native
+## Écriture d'une méthode native (1/2)
 
 - JSNI = JavaScript and Native Interface
 - JSNI s'appuie sur la syntaxe JNI (Java Native Interface) qui permet à Java d'intégrer du code natif → mot clé native
 - Méthode JSNI
+
+```java
+…
+public native void alert(String msg)/*-{
+	// Code Javascript
+	$wnd.alert(msg);
+}-*/;
+…
+```
+
+
+
+## Écriture d'une méthode native (2/2)
+
+
 - Remarques
 	- les commentaires sont une astuce permettant au compilateur/IDE de ne pas détecter d'erreurs
-	- GWT fournit les variables $wnd et $doc (ie. objets HTML window et document)…publicnativevoidalert(String msg)/*-{$wnd.alert(msg);}-*/;…
+	- GWT fournit les variables $wnd et $doc (ie. objets HTML window et document)
 
-```
-
-```
-
-```
-Code Javascript
-```
-
-```
-Resanet.java
-```
 
 Notes :
 
@@ -290,9 +345,21 @@ Notes :
 
 - Accéder à du code Java depuis Javascript permet notamment à l'application de réagir à des événements Javascript
 	- Exemple : réagir à un clic sur une carte Google Maps
-- Afin d'intégrer un appel Java, il est nécessaire d'utiliser une syntaxe spécifique[instance-expr.]@class-name::method-name(param-signature)(arguments)public void infos(String message) {…}publicnativevoidafficherInfos(String msg)/*-{this.@com.zenika.gwt.Presenter::infos(Ljava/lang/String;)(msg)}-*/;
+- Afin d'intégrer un appel Java, il est nécessaire d'utiliser une syntaxe spécifique
+```
+[instance-expr.]@class-name::method-name(param-
+signature)(arguments)
+```
 
-![](ressources/images/GWT_-_13_-_Notions_Avancees-100002010000004000000040217DAF4C.png)
+```java
+public void infos(String message) {
+	…
+}
+public native void afficherInfos(String msg)/*-{
+	this.@com.zenika.gwt.Presenter::infos(Ljava/lang/String;)(msg)
+}-*/;
+```
+
 
 Notes :
 
@@ -304,7 +371,11 @@ Notes :
 - La description des arguments Java s'appuie sur la syntaxe JNI de signature de méthode
 - Il est nécessaire de décrire la méthode Java avec la syntaxe JNI
 - Il est important de décrire l'ensemble des informations pour permettre au compilateur de connaître précisément la méthode à appeler (exemple : surcharge de méthode)
-- Exemple : Ljava/lang/String  Stringthis.@com.zenika.gwt.Presenter::infos(Ljava/lang/String;)(msg)
+- Exemple : Ljava/lang/String  String
+
+```
+this.@com.zenika.gwt.Presenter::infos(Ljava/lang/String;)(msg)
+```
 Notes :
 
 
@@ -319,85 +390,19 @@ Notes :
 
 
 
+<!-- .slide: class="page-tp12" -->
 
 
 
-![](ressources/images/GWT_-_13_-_Notions_Avancees-10000201000001000000010037A4F079.png)
-## TP 12
-
-Notes :
-
-
-
-
-## Speed Tracer
+# Pattern MVP
+<!-- .slide: class="page-title" -->
 
 Notes :
 
 
 
 
-## Présentation
-
-- Il s'agit d'un plugin chrome pour aider à identifier et résoudre les problèmes de performances,
-- L'analyse de performance doit se faire en mode compilé. Le mode « dev » n'est pas représentatif des performances en production.
-- Le plugin va enregistrer l'ensemble des actions qui sont réalisés par le navigateur (événement, appel ajax, dessin de l'écran, traitement, etc.). Il y a aussi un enregistrement de tout les appels réseaux réalisés.
-- Il est possible de cliquer sur chaque ligne pour du log pour détailler les actions et traitements réalisé pour retrouver les lignes de code exécuté
-Notes :
-
-
-
-
-## Présentation
-
-
-![](ressources/images/GWT_-_13_-_Notions_Avancees-100000000000034200000168375D9692.png)
-
-```
-Démarrer l'enregistrement
-```
-
-```
-Supprimer la précédente capture
-```
-
-```
-Afficher l'ensemble de la capture
-```
-
-Notes :
-
-
-
-
-## Retour d'expérience
-
-- Permet d'évaluer précisément les soucis de performance ressentit lors de navigation.
-- Permet de savoir si il s'agit d'un soucis de traitement de données ou de gestion de l'interface.
-- Reste limité dans la compréhension des problématiques existantes
-Notes :
-
-
-
-
-
-
-![](ressources/images/GWT_-_13_-_Notions_Avancees-10000201000001000000010037A4F079.png)
-## TP 13
-
-Notes :
-
-
-
-
-## Pattern MVP
-
-Notes :
-
-
-
-
-## Bonnes pratiques GWT
+## Bonnes pratiques GWT (1/2)
 
 - Une conférence du Google I/O 2009 présentée par Ray Ryan a mis en avant les bonnes pratiques d'architecture GWT
 	- Couplage faible
@@ -405,28 +410,23 @@ Notes :
 	- Pattern Command
 	- Concept d'EventBus
 	- Injection de dépendances
+
+Notes :
+
+
+
+## Bonnes pratiques GWT (2/2)
+
 - Cette conférence a été fortement commentée et de nombreux effets se sont fait sentir
 	- Prise de conscience de la nécessaire formalisation et industrialisation des développements GWT
 	- Développement de projets et frameworks autour des concepts mis en avant
-Notes :
-
 
 
 
 ## MVC
 
-```
-View
-```
+![](ressources/images/12_avancee/mvc.png)
 
-```
-Controler
-```
-
-```
-Model
-```
-Fait suivre les interactions utilisateurAppelle les traitements associés aux interactions utilisateurNotifie les changements à la vueRécupère les données « fraîches »
 Notes :
 
 
@@ -434,64 +434,101 @@ Notes :
 
 ## MVP
 
-```
-View
-```
+![](ressources/images/12_avancee/mvp.png)
 
-```
-Presenter
-```
-
-```
-Model
-```
-Utilise un contrat (ie. interface) pour lire/écrire les données vueFait suivre les interactions utilisateurAppelle les traitements associés aux interactions utilisateur
 Notes :
 
 
 
 
-## Pourquoi MVP ?
+## Pourquoi MVP ? (1/2)
 
 - Comparé à MVC, MVP réduit le rôle View au strict minimum
 	- View dans MVP = Passive View
 	- Aucune logique n'est mise en œuvre par la vue
+
+- La View dans MVC, même faiblement, est couplée au Model et au Controler avec pour conséquences :
+
+	- Logique graphique (ie. interactions utilisateur) difficilement testable
+	- Difficile à maintenir et faire évoluer
+
+
+Notes :
+
+
+
+
+## Pourquoi MVP ? (2/2)
+
+
 - Le Presenter définit une interface de liaison (ie. contrat) avec la View
-- L'adjonction d'un EventBus permet de mettre en œuvre une modularité forte de l'applicationLaViewdans MVC, même faiblement, est couplée auModelet auControleravec pour conséquences :
 
-- Logique graphique (ie. interactions utilisateur) difficilement testable
-- Difficile à maintenir et faire évoluerLe couplage faible entrePresenteretViewassure une évolution optimale de l'ensemble du systèmeIl est également possible pour desViewcomplexes d'utiliser plusieursPresenterafin d'assurer la lisibilité des développements
+Le couplage faible entre Presenter et View assure une évolution optimale de l'ensemble du système
+
+Il est également possible pour des View complexes d'utiliser plusieurs Presenter afin d'assurer la lisibilité des développements
+
+- L'adjonction d'un EventBus permet de mettre en œuvre une modularité forte de l'application
+
+
+
+
+## Quelques exemples
+
+```
+<g:DialogBoxtext="{constants.deconnect}">
+	<g:FlowPanel>
+		<g:Label text="{constants.confirmdeconnect}"></g:Label>
+		<g:FlowPanel>
+			<g:Button ui:field="yesButton"text="{constants.yes}" 
+				addStyleNames="{style.yesButton}"/>
+			<g:Button ui:field="noButton"text="{constants.no}"
+				addStyleNames="{style.noButton}"/>
+		</g:FlowPanel>
+	</g:FlowPanel>
+</g:DialogBox>
+```
+
+```java
+public class LogoutPopup extends DialogBox {
+	@UiHandler("yesButton")
+	public void handlerYesClick(ClickEvent event) {
+		EcranPrincipal.EVENT_BUS.fireEvent(newLogoutEvent());
+		LogoutPopup.this.hide();
+	}
+	@UiHandler("noButton")
+	public void handlerNoClick(ClickEvent event) {
+		LogoutPopup.this.hide();
+	}
+
+```
 Notes :
 
 
 
 
-## Quelques exemples (2/2)
-<g:DialogBoxtext="{constants.deconnect}"><g:FlowPanel><g:Labeltext="{constants.confirmdeconnect}"></g:Label><g:FlowPanel><g:Buttonui:field="yesButton"text="{constants.yes}"addStyleNames="{style.yesButton}"/><g:Buttonui:field="noButton"text="{constants.no}"addStyleNames="{style.noButton}"/></g:FlowPanel></g:FlowPanel></g:DialogBox>publicclassLogoutPopupextendsDialogBox {...@UiHandler("yesButton")publicvoidhandlerYesClick(ClickEvent event) {EcranPrincipal.EVENT_BUS.fireEvent(newLogoutEvent());LogoutPopup.this.hide();}@UiHandler("noButton")publicvoidhandlerNoClick(ClickEvent event) {LogoutPopup.this.hide();}
-Notes :
-
-
-
-
-## Pour aller plus loin
+## Pour aller plus loin (1/2)
 
 - Possibilité de mettre en place un moteur d'injection de dépendances
 	- View → Presenter
 	- EventBus → Presenter
 - Moteur d'injection de dépendances : GIN (basé sur Google Guice)
 	- http://code.google.com/p/google-gin/
-- Google fournit un framework MVP depuis GWT 2.1 (Activities & Places)
-	- Complet
-	- Gestion de l'historique du navigateur
-	- Difficile à prendre main
-- Conférence Google I/O →http://code.google.com/intl/fr/events/io/2009/sessions/GoogleWebToolkitBestPractices.html
+
 Notes :
 
 
 
 
+## Pour aller plus loin (2/2)
+
+- Google fournit un framework MVP depuis GWT 2.1 (Activities & Places)
+	- Complet
+	- Gestion de l'historique du navigateur
+	- Difficile à prendre main
+- Conférence Google I/O →http://code.google.com/intl/fr/events/io/2009/sessions/GoogleWebToolkitBestPractices.html
+
+Notes : 
+
+
+
 <!-- .slide: class="page-questions" -->
-
-
-
-<!-- .slide: class="page-tp1" -->

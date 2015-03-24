@@ -3,8 +3,6 @@
 <!-- .slide: class="page-title" -->
 
 
-
-
 Notes :
 
 
@@ -15,10 +13,18 @@ Notes :
 - HTML a été créé en 1991 par Tim Berners-Lee
 	- « Web » lié historiquement à la notion d'hypertexte
 	- HTML = Hypertext Markup Language
-- Plusieurs versions se sont succédé (aujourd'hui HTML 5)
+
+- <sub>Plusieurs versions se sont succédé (aujourd'hui HTML 5)</sub>
 	- Ajout des images
 	- Ajout des formulaires
 	- Vidéo, audio
+
+Notes :
+
+
+
+## World Wide Web et HTML
+
 - S'oppose au modèle client-serveur dominant à l'époque
 	- Absence de déploiement coté client
 	- Portabilité (prise en charge par le navigateur web →« client universel »)
@@ -34,20 +40,8 @@ Notes :
 - Technologies coté client : HTML / DHTML / CSS
 - Pas de logique de traitement côté client
 
-```
+![](ressources/images/01_introduction/rappel_web.png)
 
-```
-
-```
-Navigateur
-(Client)
-```
-HTTPServeur HTTP
-
-![](ressources/images/GWT_-_01_-_Introduction-10000201000000400000004022BF4589.png)
-
-
-![](ressources/images/GWT_-_01_-_Introduction-10000201000000400000004087C11F66.png)
 
 Notes :
 
@@ -59,20 +53,22 @@ Notes :
 - Servlets
 	- Les Servlets ont supplanté l'utilisation de script CGI
 	- Composant de base de la plateforme JEE
-		- Le conteneur de Servlet n'a besoin que d'une instance de chaque Servlet et peut ensuite les « multi-threader »
-		- Écriture de la réponse via des println()
+		<figure style="display: block; float: left; margin: 15px 0; width: 100%"><img src="ressources/images/GWT_-_01_-_Introduction-1000020100000018000000181D6AEA58.png"  style="margin: auto;display:inline;"/> Le conteneur de Servlet n'a besoin que d'une instance de chaque Servlet et peut ensuite les « multi-threader »</figure> 
+		<figure style="display: block; float: left; margin: 15px 0; width: 100%">	
+    <img src="ressources/images/GWT_-_01_-_Introduction-10000201000000180000001856E7DF67.png"  style="margin: auto;display:inline;"/> Écriture de la réponse via des println()
+</figure> 
+
+
+
+## Le monde JEE - Servlets & JSP
+
 - JSP
 	- Possibilité de « mixer » du code HTML avec du code Java
 	- Plus de println() → on écrit directement du HTML et les parties dynamiques en Java.
 - Ne résout pas les problèmes de maintenance → cohabitation de code applicatif et de logique d'affichage
 
-![](ressources/images/GWT_-_01_-_Introduction-1000020100000018000000181D6AEA58.png)
-
-
-![](ressources/images/GWT_-_01_-_Introduction-10000201000000180000001856E7DF67.png)
 
 Notes :
-
 
 
 
@@ -110,31 +106,19 @@ Notes :
 	- Affichage de contenu dynamique
 	- Limitation d'envois de données inutiles
 
-```
+<figure style="display: block; float: left; margin: 30px 0; width: 40%">
+    <img src="ressources/images/01_introduction/rappel_web.png" alt="Logo Zenika" style="margin: auto;"/>
+</figure>
+
+
 Plus d'effet « page blanche »
 ou de formulaires effacés
-```
 
-```
+
 L'utilisateur ressent plus
 d'interactivité et de réactivité
 de la part de l'application
-```
 
-```
-
-```
-
-```
-Navigateur
-(Client)
-```
-HTTPServeur HTTP
-
-![](ressources/images/GWT_-_01_-_Introduction-10000201000000400000004022BF4589.png)
-
-
-![](ressources/images/GWT_-_01_-_Introduction-10000201000000400000004087C11F66.png)
 
 Notes :
 
@@ -159,7 +143,7 @@ Notes :
 ## Frameworks AJAX
 
 - Plusieurs types de frameworks AJAX
-	- Simplification du développement JavaScript : Dojo, Script.aculo.us, YUI ...
+	- Simplification du développement JavaScript : Dojo, JQuery ...
 	- Simplification des appels client-serveur : DWR ...
 	- « X-Windows » pour le Web : XML11, Echo2 …
 - Le cœur des frameworks AJAX reste le langage Javascript
@@ -177,6 +161,12 @@ Notes :
 	- Standards non respectés
 	- Complexité du développement Javascript
 	- Fuite mémoire Javascript
+Notes :
+
+
+
+## GWT en bref
+
 - Comment ?
 	- Un compilateur Java vers Javascript
 	- Un ensemble de widgets prêts à l'emploi
@@ -189,29 +179,34 @@ Notes :
 
 ## Exemple d'application GWT
 
-- package com.zenika.resanet.gwt.client;
-- …
-- public class Resanet implements EntryPoint {
-- 
-- public void onModuleLoad() {
-- Label label = new Label("ACCUEIL");
-- label.setHeight("50px");
-- RootPanel.get().add(label);
-- 
-- Button button = new Button("Cliquez");
-- button.addClickHandler(new ClickHandler() {
-- 
-- @Override
-- public void onClick(ClickEvent event) {
-- Window.alert("Bonjour tout le monde !");
-- }
-- 
-- });
-- RootPanel.get().add(button);
-- }
-- }
+```java
+package com.zenika.resanet.gwt.client;
+…
+public class Resanet implements EntryPoint {
 
-![](ressources/images/GWT_-_01_-_Introduction-10000000000001580000013DC58FA7E5.png)
+	public void onModuleLoad() {
+		Label label = new Label("ACCUEIL");
+		label.setHeight("50px");
+		RootPanel.get().add(label);
+ 
+		Button button = new Button("Cliquez");
+		button.addClickHandler(new ClickHandler() {
+ 
+			@Override
+			public void onClick(ClickEvent event) {
+				Window.alert("Bonjour tout le monde !");
+			} 
+		});
+
+		RootPanel.get().add(button);
+	}
+}
+```
+
+<figure style="position: absolute; bottom: 35%; right: 0;">
+    <img src="ressources/images/GWT_-_01_-_Introduction-10000000000001580000013DC58FA7E5.png" alt="Logo Zenika"/>
+</figure>
+
 
 Notes :
 
@@ -220,58 +215,8 @@ Notes :
 
 ## Application GWT
 
-```
-Développeur
-```
 
-```
-Client
-```
-
-```
-Interface Graphique
-(HTML + JavaScript)
-```
-
-```
-Serveur
-```
-
-```
-Persistance
-(Hibernate,
-JPA ...)
-```
-
-```
-Services
-Métier
-(Spring ... )
-```
-
-
-![](ressources/images/GWT_-_01_-_Introduction-10000201000000400000004053EF7B88.png)
-
-
-![](ressources/images/GWT_-_01_-_Introduction-1000020100000080000000804EB2E583.png)
-
-
-![](ressources/images/GWT_-_01_-_Introduction-1000020100000080000000800B0C769A.png)
-RPC
-
-![](ressources/images/GWT_-_01_-_Introduction-100002010000008000000080C2C5A337.png)
-
-```
-Java / GWT
-```
-
-```
-Compilateur
-GWT
-```
-
-
-![](ressources/images/GWT_-_01_-_Introduction-100002010000004000000040A6852FFC.png)
+![](ressources/images/01_introduction/applicationGWT.png)
 
 Notes :
 
@@ -304,86 +249,14 @@ Notes :
 
 ## Compilation (3/3)
 
-```
-
-```
-
-```
-Code applicatif
-```
-
-```
-Firefox
-```
-
-```
-en_UK
-```
-
-```
-
-```
-
-```
-Code applicatif
-```
-
-```
-IE
-```
-
-```
-en_UK
-```
-
-```
-
-```
-
-```
-Code applicatif
-```
-
-```
-Firefox
-```
-
-```
-fr_FR
-```
-
-```
-
-```
-
-```
-Code applicatif
-```
-
-```
-IE
-```
-
-```
-fr_FR
-```
-
-```
-Un seul code
-Java
-```
-Une seule permutationest téléchargée et miseen cache par le navigateur
-
-```
-Permutation
-```
+![](ressources/images/01_introduction/compilation.png)
 
 Notes :
 
 
 
 
-## Limitations (1/2)
+## Limitations (1/3)
 
 - GWT n'est pas adapté dans un contexte où vous avez une équipe de designers et une équipe de développeurs
 - Le compilateur ne travaille que sur un sous-ensemble de la runtime Java (rt.jar)
@@ -397,12 +270,20 @@ Notes :
 
 
 
-## Limitations (2/2)
+## Limitations (2/3)
 
 - Aucun widget de haut niveau n'est fourni
 	- Google a pensé ses APIs pour l'extensibilité et la redéfinition
 	- Il a toujours été possible et encouragé de créer ses widgets
 	- Du fait des APIs stables, il n'y a eu historiquement quasi aucun changement suite à une montée de version
+
+Notes :
+
+
+
+
+## Limitations (3/3)
+
 - Aucun mécanisme n'est prévu pour l'indexation du site
 	- Il est plus compliqué de concilier site à vocation commerciale et GWT puisque les robots de moteurs de recherche n'exécutent pas le JavaScript : GWT permet de développer des applications web, non des sites web
 	- Ne pas tenter de servir un contenu spécifique aux robots car sinon le site concerné sera automatiquement retiré des classements (ie. comportement de Google)
@@ -415,7 +296,7 @@ Notes :
 
 - GWT se compose uniquement d'un fichier Zip
 - GWT est téléchargeable sur un site dédié
-	- http://code.google.com/webtoolkit/
+	- http://www.gwtproject.org/download.html
 - Chacune des distributions GWT contient
 	- Bibliothèques GWT
 	- Documentation
@@ -435,8 +316,8 @@ Notes :
 		- Concepts (Code Splitting, UIBinder ...)
 		- Outillage (Plugin Eclipse, rapport de compilation ...)
 	- Depuis la naissance de GWT, aucune « cassure » de la compatibilité ascendante n'est à noter
-- Version actuelle : 2.5
-- Site :https://developers.google.com/web-toolkit/
+- Version actuelle : 2.7
+- Site :http://gwtproject.org/
 Notes :
 
 
@@ -446,12 +327,12 @@ Notes :
 
 - Showcase est l'application de démonstration officielle des Widgets
 	- Présente tous les Widgets triés par type
-	- Située dans<ROOT_GWT>/samples/Showcase
+	- Située dans <ROOT_GWT\>/samples/Showcase
 - Importer dans Eclipse
-	- Génération des fichiers.classpathet.projectvia la commande Ant :ant eclipse.generate
-	- Lancer le mode développement via la commande Ant :ant devmode
+	- Génération des fichiers.classpathet.projectvia la commande Ant : ```ant eclipse.generate```
+	- Lancer le mode développement via la commande Ant : ``` ant devmode ```
 - Showcase est disponible en ligne
-	- http://gwt.google.com/samples/Showcase/Showcase.html
+	- http://samples.gwtproject.org/samples/Showcase/Showcase.html
 Notes :
 
 
@@ -460,7 +341,10 @@ Notes :
 ## Showcase
 
 
-![](ressources/images/GWT_-_01_-_Introduction-10000000000002D00000022FF18F8514.png)
+<figure>
+    <img src="ressources/images/GWT_-_01_-_Introduction-10000000000002D00000022FF18F8514.png" width="75%"/>
+</figure>
+
 
 Notes :
 

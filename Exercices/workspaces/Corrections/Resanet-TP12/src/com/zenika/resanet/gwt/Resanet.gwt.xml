@@ -25,6 +25,6 @@
 
 	<set-property-fallback name="locale" value="fr" />
 
-	<script src="bootstrap-datepicker.js"></script>
-	<stylesheet src="bootstrap-datepicker.css"></stylesheet>
+<!-- 	<script src="bootstrap-datepicker.js"></script>
+	<stylesheet src="bootstrap-datepicker.css"></stylesheet> -->
 </module>

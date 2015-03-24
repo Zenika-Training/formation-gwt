@@ -4,16 +4,9 @@
 
 
 
-## Développer une application Web 2.0 avec GWT
-
-Notes :
-
-
-
-
 ## Plan
 
-- 1erjournée
+- 1 ere journée
 	- 01 – Introduction
 	- 02 – Créer un projet GWT avec Eclipse
 	- 03 – Les principes de GWT
@@ -25,7 +18,7 @@ Notes :
 
 ## Plan
 
-- 2emejournée
+- 2 eme journée
 	- 05 – La communication RPC
 	- 06 – Les événements au sein de GWT
 	- 07 – Internationaliser une application GWT
@@ -36,7 +29,7 @@ Notes :
 
 ## Plan
 
-- 3emejournée
+- 3 eme journée
 	- 08 – UiBinder
 	- 09 – Développement de composants
 	- 10 – Historique
@@ -46,10 +39,3 @@ Notes :
 Notes :
 
 
-
-
-<!-- .slide: class="page-questions" -->
-
-
-
-<!-- .slide: class="page-tp1" -->
