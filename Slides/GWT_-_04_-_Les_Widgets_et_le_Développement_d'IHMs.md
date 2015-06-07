@@ -303,8 +303,8 @@ Notes :
 
 ## Layout Panels (1/4)
 
-- GWT 1.0 utilise principalement la balise<table>comme base de positionnement et du Javascript pour le redimensionnement
-- La balise<table>comporte certaines limites
+- GWT 1.0 utilise principalement la balise `<table>` comme base de positionnement et du Javascript pour le redimensionnement
+- La balise `<table>` comporte certaines limites
 	- Dégradation des performances d'affichage sur certains navigateurs
 	- Comportements différent selon le mode de rendu standard ou quirks
 Notes :
@@ -320,7 +320,7 @@ Notes :
 	- Ne fonctionner qu'en mode standard HTML
 	- Déléguer le travail au moteur de rendu des navigateurs et non à du code Javascript pour des raisons de performances et d'efficacité
 - Le principe
-	- Le modèle de positionnement utilise la balise<div>et redéfinit l'attributstyle
+	- Le modèle de positionnement utilise la balise `<div>` et redéfinit l'attributstyle
 Notes :
 
 
