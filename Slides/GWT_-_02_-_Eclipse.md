@@ -109,9 +109,9 @@ Notes :
 
 - Les éléments structurants d'un module GWT
 	- Fichier de configuration du module
-	![](ressources/images/GWT_-_02_-_Eclipse-100000000000007E0000001A2A286C69.png)
-	- EntryPoint : Classe principale de l'application GWT
 	![](ressources/images/GWT_-_02_-_Eclipse-100000000000009E00000011DC6F8B83.png)
+	- EntryPoint : Classe principale de l'application GWT
+	![](ressources/images/GWT_-_02_-_Eclipse-100000000000007E0000001A2A286C69.png)	
 	- Host HTML Page : page d'accueil de l'application GWT
 	![](ressources/images/GWT_-_02_-_Eclipse-10000000000000A000000043B836A843.png)
 	- Le dossier war contient tous les éléments web de l'application : CSS, HTML, JavaScript, images
