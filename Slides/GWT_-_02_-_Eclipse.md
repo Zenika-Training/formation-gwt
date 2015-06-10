@@ -10,15 +10,12 @@ Notes :
 
 ## Plugin Eclipse (1/2)
 
-- Google fournit un plugin Eclipsepermettant
+- Google fournit un plugin Eclipse permettant
 	- De créer un projet GWT sous Eclipse
 	- De lancer une application GWT en mode « Développement »
 	- De compiler une application GWT
 
-
 ![](ressources/images/GWT_-_02_-_Eclipse-100002010000006400000064D2FCA476.png)
-
-
 Notes :
 
 
@@ -44,8 +41,6 @@ Notes :
 <figure >
    		<img  src="ressources/images/02_eclipse/creerProject.png" width="70%"/>
 </figure>
-
-
 Notes :
 
 
@@ -54,20 +49,17 @@ Notes :
 
 - La distribution de Google fournit plusieurs fichiers de commande utiles pour la création de projets GWT pouvant servir d'alternatives au plugin Eclipse GWT
 - WebAppCreator: commande unique permettant de créer le projet GWT et le projet Eclipse
-- WebAppCreatorcrée la même structure de projet que le plugin
+- WebAppCreator crée la même structure de projet que le plugin
 - Il génère également un script Ant lié (exécution / compilation) à l'application GWT
 - Il donne aussi la possibilité de générer un projet Maven
 Notes :
 
 
 
-
 ## Organisation du projet sous Eclipse
-
 
 ![](ressources/images/02_eclipse/organisation.png)
 Notes :
-
 
 
 
@@ -80,20 +72,17 @@ Notes :
 	- Ressources statiques (ie. CSS, images, Javascript ...) présentes dans le dossier war
 	- Présence des dossiers WEB-INF et WEB-INF/lib
 	- Servlets déclarées dans le fichier web.xml
-
-
 Notes :
-
 
 
 
 ## Module GWT (1/2)
 
-- Répertoire client
+- Répertoire `client`
 	- Code Java transformé en Javascript à la compilation GWT
-- Répertoire server
-	- Code JEE déployé surle serveur
-- Répertoire shared
+- Répertoire `server`
+	- Code JEE déployé sur le serveur
+- Répertoire `shared`
 	- Code commun au client et au serveur
 
 <figure style="position: absolute; bottom: 10px; right: 0;">
@@ -112,20 +101,17 @@ Notes :
 	![](ressources/images/GWT_-_02_-_Eclipse-100000000000009E00000011DC6F8B83.png)
 	- EntryPoint : Classe principale de l'application GWT
 	![](ressources/images/GWT_-_02_-_Eclipse-100000000000007E0000001A2A286C69.png)	
-	- Host HTML Page : page d'accueil de l'application GWT
+	- Host HTML Page : Page d'accueil de l'application GWT
 	![](ressources/images/GWT_-_02_-_Eclipse-10000000000000A000000043B836A843.png)
 	- Le dossier war contient tous les éléments web de l'application : CSS, HTML, JavaScript, images
 
-
 Notes :
-
 
 
 
 ## Le fichier de configuration XML (1/4)
 
 ![](ressources/images/02_eclipse/confXML.png)
-
 
 Notes :
 
@@ -141,7 +127,6 @@ Notes :
 	- Propriétés (spécification de la locale, etc...)
 - Un module peut hériter de plusieurs modules, contenir plusieurs EntryPoints et Host HTML Page
 
-
 Notes :
 	Déclaration facultative des packages clients (par défaut "client")
 
@@ -156,8 +141,6 @@ Notes :
 
 
 
-
-
 ## Le fichier de configuration XML (4/4)
 
 - Remarque sur la déclaration des packages clients
@@ -166,15 +149,13 @@ Notes :
 
 ![](ressources/images/02_eclipse/confXML2.png)
 
-
 Notes :
-
 
 
 
 ## L'interface EntryPoint
 
-- L'interface EntryPoint contient une méthode uniqueonModuleLoad()qui est invoquée au chargement du module
+- L'interface EntryPoint contient une méthode unique `onModuleLoad()` qui est invoquée au chargement du module
 - S'il y a plusieurs EntryPoints déclarés dans un module, alors ils sont tous invoqués, dans l'ordre de déclaration dans le fichier XML
 
 <figure>
@@ -195,22 +176,19 @@ Notes :
     <img src="ressources/images/02_eclipse/hostPage.png" width="80%"/>
 </figure>
 
-
 Notes :
-
 
 
 
 ## La Host HTML Page (2/2)
 
-- `<nomDuModule>.nocache.js `Sélectionne une permutation et déclenche le chargement du module
+- `<nomDuModule>.nocache.js ` : sélectionne une permutation et déclenche le chargement du module
 
 - Les iframes qui permettent à GWT d'intégrer des pages HTML contenant du code javascript
 
 - Les « slots » avec des identifiants définis par le développeur
 
 Notes : 
-
 
 
 
@@ -229,7 +207,6 @@ Notes :
 
 
 
-
 ## Mode Développement (2/5)
 
 - Le mode « Développement » est constitué
@@ -243,7 +220,6 @@ Notes :
 	- La partie cliente du Module est exécutée en Java
 
 Notes : 
-
 
 
 
@@ -265,7 +241,6 @@ Notes :
 
 
 
-
 ## Mode Développement (4/5)
 
 ![](ressources/images/02_eclipse/devMode.png)
@@ -283,16 +258,14 @@ Notes :
 	- Suppression en cours des API des navigateurs pour raison de sécurité
 		- API supprimée depuis Firefox 27
 
-
 Notes :
 
 
 
-
-## Mode Super developpement
+## Mode «&nbsp;Super Développement&nbsp;»
 
 - Caractéristiques
-	- Exécution adaptée à la phase de Développement
+	- Exécution adaptée à la phase de développement
 	- Indispensable dans le développement d'application GWT
 
 - Avantages 
@@ -305,40 +278,35 @@ Notes :
 
 
 
+## Mode «&nbsp;Super Développement&nbsp;» (1/4)
 
-
-## Mode «Super Développement » (1/4)
-
-- Le mode «Super Développement » est possible sans aucune installation de plugin
-- Une fois le super dev lancé, l'utilisateur peut tester l'application directement sur le navigateur de son choix.
+- Le mode «&nbsp;Super Développement&nbsp;» est possible sans aucune installation de plugin
 - Avantages
 	- Liberté de tester sur le navigateur de son choix
-	- Debugging via Chrome DeveloperTools/ IE developper tools des classes Java
+	- Debugging via Chrome DevTools / IE developper tools des classes Java
 Notes :
 
 
 
+## Mode «&nbsp;Super Développement&nbsp;» (2/4)
 
-## Mode «Super Développement » (2/4)
-
-- Le mode «Super Développement » est constitué
+- Le mode «&nbsp;Super Développement&nbsp;» est constitué
 	- D'un serveur Jetty embarqué
 	- D'un compilateur GWT en mode draft
-- Mode «Super Développement »
+- Mode «&nbsp;Super Développement&nbsp;»
 	- com.google.gwt.dev.DevMode démarre un code server
 	- Le source Java est compilé en Javascript
 	- La partie cliente du Module est exécutée sur le navigateur
-	- SourceMaps permet de faire le lien entre Java et Javascript via les outil de debugging
+	- SourceMaps permet de faire le lien entre Java et Javascript via les outils de debugging
 Notes :
 
 
 
-
-## Mode «Super Développement » (3/4)
+## Mode «&nbsp;Super Développement&nbsp;» (3/4)
 
 - Le Code Server
 	- Effectue une compilation complète lors du premier chargement de l'application
-	- Effectue une compilation ciblée sur les modifications pour les rechargements suivant.
+	- Effectue une compilation ciblée sur les modifications pour les rechargements suivants.
 - Le navigateur
 	- Exécute l'application
 	- Affiche les erreurs de compilation, les runtime exceptions et les erreurs internes dans une console
@@ -347,14 +315,11 @@ Notes :
 
 
 
-
-## Mode «Super Développement » (4/4)
-
+## Mode «&nbsp;Super Développement&nbsp;» (4/4)
 
 ![](ressources/images/02_eclipse/superDev.png)
 
 Notes :
-
 
 
 
@@ -366,15 +331,14 @@ Notes :
 
 
 
-## Exécution en mode «Super Développement »
-
+## Exécution en mode «&nbsp;Super Développement&nbsp;»
 
 <figure>
     <img src="ressources/images/GWT_-_02_-_Eclipse-10000000000003FF00000204538C7A39.png" width="80%"/>
 </figure>
 Remarque : le plugin Eclipse lance directement le code server dans un onglet.
 
-Si le code server est lancé via Ant, Maven ou une ligne de commande, celui-ci s'exécute dans une fenêtre dédiée
+Si le code server est lancé via Ant, Maven ou une ligne de commande, celui-ci s'exécute dans une fenêtre dédiée.
 Notes :
 
 
@@ -382,11 +346,9 @@ Notes :
 
 ## Déboguer l'application GWT
 
-
 ![](ressources/images/02_eclipse/debug.png)
 
 Notes :
-
 
 
 
@@ -404,7 +366,6 @@ Notes :
 
 
 
-
 ## Mode Production (2/2)
 
 - Web Mode ↔ javascript : le browser est indépendant
@@ -419,9 +380,7 @@ Remarque: la partie serveur n'est présente que si le site a un contenu dynamiqu
         <img src="ressources/images/02_eclipse/modeProd.png" style="margin: auto;"/>
 </figure>
 
-
 Notes :
-
 
 
 
@@ -429,21 +388,16 @@ Notes :
 
 ![](ressources/images/02_eclipse/compileGWT.png)
 
-
 Notes :
-
 
 
 
 ## La Compilation/Génération
 
-
 ![](ressources/images/02_eclipse/compilationGeneration.png)
 Remarque: le code JavaScript n'est pas généré dans des fichiers .JS mais dans des fichiers .HTML afin de pallier des problèmes d'encodage (protocole HTTP)
 
-
 Notes :
-
 
 
 
@@ -455,16 +409,15 @@ Notes :
         <img src="ressources/images/02_eclipse/repertoireCompile.png" width="80%" style="margin: auto;"/>
 </figure>
 
-
 Notes :
 
 
 
 ## gwt-*.jar (1/2)
 
-- gwt-dev.jar et gwt-user.jar ne sont pas destiné à être packagé dans le war.
-- Seul gwt-servlet.jar est nécessaire, et ce, seulement si vous utilisez la communication RPC.
-- Vous remarquerez d'ailleurs que gwt-servlet.jar ne contient aucune des classes de l'API servlet
+- `gwt-dev.jar` et `gwt-user.jar` ne sont pas destiné à être packagé dans le war.
+- Seul `gwt-servlet.jar` est nécessaire, et ce, seulement si vous utilisez la communication RPC.
+- Vous remarquerez d'ailleurs que `gwt-servlet.jar` ne contient aucune des classes de l'API servlet.
 
 Notes :
 
@@ -472,11 +425,10 @@ Notes :
 
 ## gwt-*.jar (2/2)
 
-- gwt-dev.jar contient le compilateur et d'autres outils comme SOYC. Vous n'en n'aurez jamais besoin pour que votre code compile.
-- gwt-user.jar contient le framework GWT qui sera transcrit en javascript. Vous n'en aurez besoin qu'en mode development.
-- gwt-servlet.jar contient le code nécessaire pour la partie serveur si vous utilisez le mécanisme RPC. C'est le seul jar qui doit être présent dans votre war.
-- gwt-codeserver.jar contient le super dev mode. Vous n'en aurez besoin qu'en mode development.
-
+- `gwt-dev.jar` contient le compilateur et d'autres outils comme SOYC. Vous n'en n'aurez jamais besoin pour que votre code compile.
+- `gwt-user.jar` contient le framework GWT qui sera transcrit en javascript. Vous n'en aurez besoin qu'en mode développement.
+- `gwt-servlet.jar` contient le code nécessaire pour la partie serveur si vous utilisez le mécanisme RPC. C'est le seul jar qui doit être présent dans votre war.
+- `gwt-codeserver.jar` contient le super dev mode. Vous n'en aurez besoin qu'en mode développement.
 
 Notes :
 

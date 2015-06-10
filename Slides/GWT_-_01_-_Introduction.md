@@ -14,7 +14,7 @@ Notes :
 	- « Web » lié historiquement à la notion d'hypertexte
 	- HTML = Hypertext Markup Language
 
-- <sub>Plusieurs versions se sont succédé (aujourd'hui HTML 5)</sub>
+- <sub>Plusieurs versions se sont succédées (aujourd'hui HTML5)</sub>
 	- Ajout des images
 	- Ajout des formulaires
 	- Vidéo, audio
@@ -27,7 +27,7 @@ Notes :
 
 - S'oppose au modèle client-serveur dominant à l'époque
 	- Absence de déploiement coté client
-	- Portabilité (prise en charge par le navigateur web →« client universel »)
+	- Portabilité (navigateur web → "client universel")
 Notes :
 
 
@@ -36,13 +36,11 @@ Notes :
 ## Rappels sur le Web 1.0
 
 - Mode requête / réponse synchrone
-- Mise à jour complète de l'IHM à chaque « action utilisation »
+- Mise à jour complète de l'IHM à chaque "action utilisateur"
 - Technologies coté client : HTML / DHTML / CSS
 - Pas de logique de traitement côté client
 
 ![](ressources/images/01_introduction/rappel_web.png)
-
-
 Notes :
 
 
@@ -66,8 +64,6 @@ Notes :
 	- Possibilité de « mixer » du code HTML avec du code Java
 	- Plus de println() → on écrit directement du HTML et les parties dynamiques en Java.
 - Ne résout pas les problèmes de maintenance → cohabitation de code applicatif et de logique d'affichage
-
-
 Notes :
 
 
@@ -104,21 +100,13 @@ Notes :
 - Originellement créé par Microsoft avec la fonction XMLHTTPRequest
 	- Envoi de requêtes non bloquantes
 	- Affichage de contenu dynamique
-	- Limitation d'envois de données inutiles
+	- Limitation d'envoi de données inutiles
+	- Plus d'effet « page blanche » ou de formulaires effacés
+	- Meilleure UX : interactivité et réactivité de la part de l'application
 
 <figure style="display: block; float: left; margin: 30px 0; width: 40%">
     <img src="ressources/images/01_introduction/rappel_web.png" alt="Logo Zenika" style="margin: auto;"/>
 </figure>
-
-
-Plus d'effet « page blanche »
-ou de formulaires effacés
-
-
-L'utilisateur ressent plus
-d'interactivité et de réactivité
-de la part de l'application
-
 
 Notes :
 
@@ -147,7 +135,7 @@ Notes :
 	- Simplification des appels client-serveur : DWR ...
 	- « X-Windows » pour le Web : XML11, Echo2 …
 - Le cœur des frameworks AJAX reste le langage Javascript
-- GWT est très différent →on ne développe plus en Javascript mais en Java
+- GWT est très différent → on ne développe plus en Javascript mais en Java
 Notes :
 
 
@@ -173,7 +161,6 @@ Notes :
 	- Un mécanisme de RPC (Remote Procedure Call)
 	- Un environnement de test et de debug entièrement en Java
 Notes :
-
 
 
 
@@ -206,15 +193,12 @@ public class Resanet implements EntryPoint {
 <figure style="position: absolute; bottom: 35%; right: 0;">
     <img src="ressources/images/GWT_-_01_-_Introduction-10000000000001580000013DC58FA7E5.png" alt="Logo Zenika"/>
 </figure>
-
-
 Notes :
 
 
 
 
 ## Application GWT
-
 
 ![](ressources/images/01_introduction/applicationGWT.png)
 
@@ -229,7 +213,8 @@ Notes :
 - Permet de n'utiliser qu'un seul langage de programmation (ie. Java)
 	- Populaire et extrêmement répandu dans le monde de l'entreprise
 	- Fortement outillé (Eclipse, Intellij …)
-- Ainsi, GWT, avec son approche « Java », nous offre la possibilité de débugger « comme d'habitude »
+- Ainsi, GWT, avec son approche « Java », nous offre la possibilité de débugger 
+«&nbsp;comme d'habitude&nbsp;»
 Notes :
 
 
@@ -337,17 +322,13 @@ Notes :
 
 
 
-
 ## Showcase
-
 
 <figure>
     <img src="ressources/images/GWT_-_01_-_Introduction-10000000000002D00000022FF18F8514.png" width="75%"/>
 </figure>
 
-
 Notes :
-
 
 
 
