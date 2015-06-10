@@ -213,8 +213,7 @@ Notes :
 - Permet de n'utiliser qu'un seul langage de programmation (ie. Java)
 	- Populaire et extrêmement répandu dans le monde de l'entreprise
 	- Fortement outillé (Eclipse, Intellij …)
-- Ainsi, GWT, avec son approche « Java », nous offre la possibilité de débugger 
-«&nbsp;comme d'habitude&nbsp;»
+- Ainsi, GWT, avec son approche «&nbsp;Java&nbsp;», nous offre la possibilité de débugger «&nbsp;comme d'habitude&nbsp;»
 Notes :
 
 
