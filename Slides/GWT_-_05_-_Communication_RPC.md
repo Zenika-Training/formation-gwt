@@ -17,7 +17,7 @@ Notes :
 ## Principe
 
 - GWT fournit un mécanisme RPC afin de simplifier les communications client/serveur
-- L'ensemble des données transitant entre le client et le serveur sont des objets Java sérialisésObjets Java sérialisés
+- L'ensemble des données transitant entre le client et le serveur sont des objets Java sérialisés
 ![](ressources/images/05_rpc/principe.png)
 
 Notes :
@@ -31,7 +31,7 @@ Notes :
 	- Facilité de debug (à comparer avec JavaScript)
 	- Définition unique des classes (unicité des règles de gestion, des types, etc...)
 	- Remarque : les applications AJAX utilisent classiquement JSON ou XML pour représenter les données, ce qui nécessite une phase d'encodage et de décodage
-- Pas de « parsing » de réponse HTTP à effectuer
+- « Parsing » automatique du payload HTTP effectué par GWT
 	- Développement plus rapide
 	- Taux d'erreur plus faible
 Notes :
@@ -47,7 +47,7 @@ Notes :
 - Transfert d'une partie de la logique métier vers le client
 	- Diminution du trafic réseau
 	- Navigation plus fluide
-	- Diminution de la charge du serveur qui n'a plus à gérer le contexte du client (ie. plus de session.setAttribute())
+	- Diminution de la charge du serveur qui n'a plus à gérer le contexte du client (ie. plus de `session.setAttribute()`)
 - Le serveur d'application devient un serveur de services (au sens SOA) stateless donc scalable
 Notes :
 
@@ -65,11 +65,11 @@ Notes :
 
 ## Mise en œuvre
 
-- Pour réaliser un service, il faut donc implémenter trois classes:
+- Pour réaliser un service, il faut implémenter trois classes:
 	- Interface du service
 	- Implémentation du service
 	- Interface asynchrone du service
-- Il faut aussi déclarer le service dans le fichier web.xml
+- Il faut aussi déclarer le service dans le fichier `web.xml`
 - Fonctionnement
 	- Le mécanisme RPC de GWT s'appuie sur l'objet XMLHTTPRequest qui est déjà au cœur des frameworks AJAX
 	- XMLHTTPRequest permet, depuis Javascript, d'envoyer une requête au serveur asynchrone (afin de ne pas bloquer le navigateur)
@@ -84,7 +84,7 @@ Notes :
 - L'interface du service doit être placée dans un package coté client
 ![](ressources/images/05_rpc/entryPoint.png)
 
-L'annotationRemoteServiceRelativePathdoit être positionnée pour associer à chaque service un chemin relatif au module par défaut
+L'annotation `RemoteServiceRelativePath` doit être positionnée pour associer à chaque service un chemin relatif au module par défaut
 Notes :
 
 
@@ -100,7 +100,7 @@ Notes :
     <figcaption>Le logo Zenika</figcaption>
 </figure>
 
-- L'interface asynchrone renvoie void mais accepte un callback
+- L'interface asynchrone renvoie `void` mais accepte un callback
 - L'interface synchrone et l'interface asynchrone doivent être situées dans le même package
 
 Notes :
@@ -138,7 +138,7 @@ Notes :
 
 ## Déclaration du service HTTP
 
-- Déclaration du service en tant que servlet dans le fichier web.xml
+- Déclaration du service en tant que servlet dans le fichier `web.xml`
 ```xml
 <!-- GWT exported services -->
 <servlet>
@@ -196,7 +196,7 @@ Notes :
 
 ## GWT-RPC sérialisation (1/5)
 
-- Les objets Java qui transitent sur le réseau doivent êtresérialisés/désérialisés → GWT RPC s'en charge pour vous
+- Les objets Java qui transitent sur le réseau doivent être sérialisés/désérialisés → GWT RPC s'en charge pour vous
 - Mécanisme de sérialisation propriétaire à Google → ne pas confondre avec celui de Java basé sur l'interface Serializable
 - GWT RPC impose que tous les paramètres et types de retour des méthodes soient sérialisables
 Notes :
@@ -207,10 +207,10 @@ Notes :
 ## GWT-RPC sérialisation (2/5)
 
 - Types sérialisables→ arguments ou type de retour acceptés par les services RPC
-	- Les types primitifs commechar, byte, short, int, long, boolean, float ou double;
-	- Les classes String, Date, ou les classes « wrapper » de type primitif comme Character, Byte, Short, Integer, Long, Boolean, Float ou Double
+	- Les types primitifs comme `char`, `byte`, `short`, `int`, `long`, `boolean`, `float` ou `double`;
+	- Les classes `String`, `Date`, ou les classes « wrapper » de type primitif comme `Character`, `Byte`, `Short`, `Integer`, `Long`, `Boolean`, `Float` ou `Double`
 	- Les tableaux de types sérialisables
-	- List, Map et Set
+	- `List`, `Map` et `Set`
 Notes :
 
 
@@ -242,9 +242,8 @@ Notes :
 
 ## GWT-RPC sérialisation (5/5)
 
-- Le compilateur fournit des fichiers *gwt.rpc contenant le descriptif des types pouvant être sérialisés
-	- il doivent être inclus dans tous packaging de l'application
-
+- Le compilateur fournit des fichiers `*gwt.rpc` contenant le descriptif des types pouvant être sérialisés
+	- il doivent être inclus dans toutes les livraisons de l'application
 
 Notes :
 
@@ -325,11 +324,11 @@ Notes :
 ## Autres modes d'appels (1/3)
 
 - Requêtes HTTP en mode asynchrone sans sérialisation
-	- Module GWT séparé : com.google.gwt.http.HTTP
-	- Classe principale: com.google.gwt.http.client.RequestBuilder
-	- Méthodes GET et POST
+	- Module GWT séparé : `com.google.gwt.http.HTTP`
+	- Classe principale: `com.google.gwt.http.client.RequestBuilder`
+	- Méthodes `GET` et `POST`
 	- Possibilité de déclarer un timeout
-	- A utiliser pour récupérer du contenu textuel (HTML, XML) en provenance d'autres sites et depuis des back-ends non Java. Ex : un WebService PHP
+	- A utiliser pour récupérer du contenu textuel (HTML, XML) en provenance d'autres sites et depuis des back-ends non Java. Ex&nbsp;:&nbsp;un WebService PHP
 Notes :
 
 
@@ -338,7 +337,7 @@ Notes :
 
 - JSON
 	- Dialogue avec une couche service située sur un serveur non-Java
-	- Censé être plus rapide que RPC car la phase sérialisation/désérialisation est moins coûteuse
+	- Censé être plus rapide que RPC car la phase sérialisation/désérialisation est moins coûteuse (les navigateurs décodent le JSON nativement)
 Notes :
 
 
@@ -346,12 +345,12 @@ Notes :
 ## Autres modes d'appels (3/3)
 
 - XML
-	- Une classe unique com.google.gwt.xml.client.XMLParser pour la lecture et l'écriture de fichiers XML
+	- Une classe unique `com.google.gwt.xml.client.XMLParser` pour la lecture et l'écriture de fichiers XML
 - Lecture et manipulation d'un fichier XML existant
-	- Une méthode parse () pour parser un fichier XML existant
-	- Une méthode getDocumentElement () pour obtenir l'élément racine, une fois la méthode parse() appelée
+	- Une méthode `parse()` pour parser un fichier XML existant
+	- Une méthode `getDocumentElement()` pour obtenir l'élément racine, une fois la méthode `parse()` appelée
 - Création et écriture d'un fichier XML from scratch
-	- Une méthode createDocument() pour créer un document from scratch
+	- Une méthode `createDocument()` pour créer un document from scratch
 Notes :
 
 
