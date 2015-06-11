@@ -15,7 +15,7 @@ Notes :
 	- Bouton, Liste, Label ...
 - Les panels
 	- Composants graphiques non visibles permettant de mettre en page l'application
-	- Exemple : VerticalPanel, HorizontalPanel ...
+	- Exemple : `VerticalPanel`, `HorizontalPanel`...
 
 Notes :
 
@@ -24,9 +24,9 @@ Notes :
 
 ## Les principaux objets de GWT (2/2)
 
-- La classe DOM
+- La classe `DOM`
 	- Classe permettant de manipuler directement la structure HTML (ie. DOM) du browser
-- La classe Window
+- La classe `Window`
 	- Classe permettant d'interagir avec la fenêtre du browserpar exemple : `Window.alert("Bonjour");`
 
 
@@ -54,7 +54,6 @@ Notes :
 ## Hiérarchie des widgets
 
 ![](ressources/images/04_widget/hierarchie.png)
-
 
 Notes :
 
@@ -89,7 +88,6 @@ Notes :
     <img src="ressources/images/GWT_-_04_-_Les_Widgets_et_le_Développement_d'IHMs-10000000000000E10000007040DF5C12.png"/>
 </figure>
 
-
 Notes :
 
 
@@ -101,7 +99,7 @@ Notes :
 - Par les attributs de mise de forme
 	- Facile à mettre en œuvre
 	- Mais solution incomplète
-	- Par exemple, setColor() n'existe pas
+	- Par exemple, `setColor()` n'existe pas
 
 ```java
 	…
@@ -161,19 +159,18 @@ Notes :
 
 ## Panels (2/2)
 
-- La composition est rendu souple grâce à la bibliothèque de Panel
-	- Chacun est associé à une façon spécifique d'agencer des composants
+- La composition est rendue souple grâce à la bibliothèque de Panel
+	- Chaque Panel a une façon spécifique d'agencer des composants
 
 	![](ressources/images/04_widget/panel.png)
-- Certains Panels n'ont pas de fonctions de layout (exemple : FormPanel)
-
+- Certains Panels n'ont pas de fonction de layout (exemple&nbsp;:&nbsp;`FormPanel`)
 
 Notes :
 
 
 
 
-## Un panel spécial : Le RootPanel
+## Un panel spécial : le RootPanel
 
 - Permet d'insérer des widgets GWT dans les emplacements prévus par la Host HTML Page
 ![](ressources/images/04_widget/rootPanel.png)
@@ -189,12 +186,12 @@ Notes :
 
 ```java
 …
-VerticalPanel panel =new VerticalPanel();
-Label label0 =new Label("0");
+VerticalPanel panel = new VerticalPanel();
+Label label0 = new Label("0");
 panel.add(label0);
-Label label1 =new Label("1");
+Label label1 = new Label("1");
 panel.add(label1);
-Label label2 =new Label("2");
+Label label2 = new Label("2");
 panel.add(label2);
 RootPanel.get("slot1").add(panel);
 …
@@ -212,15 +209,14 @@ Notes :
 
 - Agence les composants horizontalement suivant l'ordre dans lequel ils sont ajoutés
 
-
 ```java
 …
-HorizontalPanel panel =new HorizontalPanel();
-Label label0 =new Label("0");
+HorizontalPanel panel = new HorizontalPanel();
+Label label0 = new Label("0");
 panel.add(label0);
-Label label1 =new Label("1");
+Label label1 = new Label("1");
 panel.add(label1);
-Label label2 =new Label("2");
+Label label2 = new Label("2");
 panel.add(label2);
 RootPanel.get("slot1").add(panel);
 …
@@ -239,14 +235,14 @@ Notes :
 - Agence les composants avec une disposition de type document
 
 ```java
-DockPanel panel =new DockPanel();
-Label north =new Label("North");
+DockPanel panel = new DockPanel();
+Label north = new Label("North");
 panel.add(north,DockPanel.NORTH);
-Label west1 =new Label("West");
+Label west1 = new Label("West");
 panel.add(west1,DockPanel.WEST);
-Label west2 =new Label("West");
+Label west2 = new Label("West");
 panel.add(west2,DockPanel.WEST);
-Label south =new Label("South");
+Label south = new Label("South");
 panel.add(south,DockPanel.SOUTH);
 RootPanel.get("slot1").add(panel);
 …
@@ -255,7 +251,6 @@ RootPanel.get("slot1").add(panel);
 <figure style="position: absolute; bottom: 25%; right: 15%;">
     <img src="ressources/images/GWT_-_04_-_Les_Widgets_et_le_Développement_d'IHMs-1000000000000136000000EE316E3808.png"/>
 </figure>
-
 
 Notes :
 
@@ -306,7 +301,7 @@ Notes :
 - GWT 1.0 utilise principalement la balise `<table>` comme base de positionnement et du Javascript pour le redimensionnement
 - La balise `<table>` comporte certaines limites
 	- Dégradation des performances d'affichage sur certains navigateurs
-	- Comportements différent selon le mode de rendu standard ou quirks
+	- Comportement différent selon le mode de rendu standard ou quirks
 Notes :
 
 
@@ -314,13 +309,13 @@ Notes :
 
 ## Layout Panels (2/4)
 
-- GWT 2.0 introduit un nouveau modèle de placement basé sur le standard CSS avec lesLayout Panels
+- GWT 2.0 introduit un nouveau modèle de placement basé sur le standard CSS avec la classe `Layout Panel`
 - L'idée est de
 	- Proposer un comportement prédictible au pixel près
 	- Ne fonctionner qu'en mode standard HTML
 	- Déléguer le travail au moteur de rendu des navigateurs et non à du code Javascript pour des raisons de performances et d'efficacité
 - Le principe
-	- Le modèle de positionnement utilise la balise `<div>` et redéfinit l'attributstyle
+	- Le modèle de positionnement utilise la balise `<div>` et redéfinit l'attribut `style`
 Notes :
 
 
@@ -330,12 +325,12 @@ Notes :
 
 - Ne fonctionne qu'en mode Standard HTML
 - GWT 2.0 a introduit de nouveaux panels respectant ce nouveau modèle de placement par CSS
-	- RootLayoutPanel
-	- LayoutPanel (panel simple respectant le modèle des Layouts)
-	- DockLayoutPanel
-	- SplitLayoutPanel
-	- StackLayoutPanel
-	- TabLayoutPanel
+	- `RootLayoutPanel`
+	- `LayoutPanel` (panel simple respectant le modèle des Layouts)
+	- `DockLayoutPanel`
+	- `SplitLayoutPanel`
+	- `StackLayoutPanel`
+	- `TabLayoutPanel`
 Notes :
 
 
@@ -344,10 +339,10 @@ Notes :
 ## Layout Panels (4/4)
 
 - Les Layout Panels doivent être utilisés afin de définir le « corps » de l'application
-	- Continuer d'utiliser les panels standards pour les composants « finaux »...
+	- Continuer d'utiliser les panels standards pour les composants «&nbsp;finaux&nbsp;»...
 	- …tout en privilégiant le positionnement via des styles css
-- L'utilisation d'un Layout Panel nécessite que la hiérarchie complète (du RootLayoutPanel au panel en question) implémente les interfaces RequiresResize et ProvidesResize
-- Dans le cas d'un Composite qui encapsule un widget qui implémente RequiresResize, il faut hériter de ResizeComposite au lieu de Composite
+- L'utilisation d'un Layout Panel nécessite que la hiérarchie complète (du `RootLayoutPanel` au panel en question) implémente les interfaces `RequiresResize` et `ProvidesResize`
+- Dans le cas d'un élément `Composite` qui encapsule un widget qui implémente `RequiresResize`, il faut hériter de `ResizeComposite` au lieu de `Composite`
 Notes :
 
 
@@ -366,9 +361,9 @@ Notes :
 - Permettent de représenter des listes d'éléments de même nature
 	- Grid pour la gestion de tableaux statiques : ses dimensions (nombre de lignes et colonnes) doivent être précisées de façon explicite
 ```java
-Grid grid =new Grid(3,2);
+Grid grid = new Grid(3,2);
 grid.setWidget(0, 0,new Label("Nom:"));
-TextBox textNom =new TextBox();
+TextBox textNom = new TextBox();
 textNom.setName("nom");
 grid.setWidget(0, 1,textNom);
 ```
@@ -410,7 +405,7 @@ Notes :
 	- Pagination
 	- Instanciation concise
 	- Fonction de saisie
-- GWT fournit maintenant une CellTable qui permet de faire des listes qui répondent aux besoins ci-dessus
+- GWT fournit maintenant une `CellTable` qui permet de faire des listes qui répondent aux besoins ci-dessus
 Notes :
 
 
@@ -420,16 +415,16 @@ Notes :
 
 - Une CellTable permet d'afficher directement des objets du domaine métier sans avoir à créer soi-même la table html.
 ```java
-CellTable<Contact> table =new CellTable<Contact>();
+CellTable<Contact> table = new CellTable<Contact>();
 ```
-- Chaque colonne de la table doit définir son propre renderer
+- Chaque colonne de la table doit définir son propre rendu
  ```java
-TextColumn<Contact> nameColumn =new TextColun<Contact>() {
+TextColumn<Contact> nameColumn = new TextColun<Contact>() {
 	 public String getValue(Contact contact) { 
 		returncontact.name;
 	}
 };
-TextColumn<Contact> addressColumn =newTextColumn<Contact>() {
+TextColumn<Contact> addressColumn = newTextColumn<Contact>() {
 	public String getValue(Contact contact) {
 		returncontact.address;
 	}
@@ -444,14 +439,14 @@ Notes :
 
 ## CellTable (2/3)
 
-- Le binding entre la CellTable et la source données est assurée par un ListDataProvider
+- Le binding entre la CellTable et la source de données est assurée par un ListDataProvider
 
 ```java
  ListDataProvider<Contact> dataProvider =
  				 new ListDataProvider<Contact>();
  ```
 
-- Binding de la cellTable
+- Binding de la CellTable
 ```java
 dataProvider.addDataDisplay(table);
 ```
@@ -476,10 +471,10 @@ Notes :
 	- Tri des colonnes
 	- Pagination
 - Les CellWidgets permettent d'afficher différents types de widgets dans les colonnes
-	- ClickableTextCell
-	- ButtonCell
-	- CheckboxCell
-	- DatePickerCell
+	- `ClickableTextCell`
+	- `ButtonCell`
+	- `CheckboxCell`
+	- `DatePickerCell`
 	- ...
 Notes :
 
@@ -497,8 +492,8 @@ Notes :
 
 - Permet d'afficher un contenu contextuel et modal
 ```java
-final Label label =new Label("GWT");
-final PopupPanel popupPanel =new PopupPanel(true);
+final Label label = new Label("GWT");
+final PopupPanel popupPanel = new PopupPanel(true);
 popupPanel.add(new HTMLPanel("<p>GWT est un toolkit développé par Google</p>"));
 label.addClickHandler(
 	new ClickHandler() {
@@ -506,7 +501,7 @@ label.addClickHandler(
 		public void onClick(ClickEvent event) {
 			popupPanel.setPopupPosition(
 			label.getAbsoluteLeft() + 10,
-				label.getAbsoluteTop() + 10);
+			label.getAbsoluteTop() + 10);
 			popupPanel.show();
 		}
 	});
@@ -552,23 +547,22 @@ Notes :
 ## Mise en œuvre de menus (2/2)
 ```java
 MenuBar menu = new MenuBar();
-MenuBar subMenu =new MenuBar(true);
-subMenu.addItem("<u>Underlined</u>",true,new Command(){
+MenuBar subMenu = new MenuBar(true);
+subMenu.addItem("<u>Underlined</u>", true, new Command(){
 	public void execute(){ Window.alert("click");}
 });
-MenuBar menu0 =new MenuBar(true);
-menu0.addItem("More &#187;",true, subMenu);
-MenuBar menu1 =new MenuBar(true);
+MenuBar menu0 = new MenuBar(true);
+menu0.addItem("More &#187;", true, subMenu);
+MenuBar menu1 = new MenuBar(true);
 menu1.addItem("<font color='#8B4513'><b>Donut</b></font>",
 	true,this);
-MenuBar menu2 =new MenuBar(true);
+MenuBar menu2 = new MenuBar(true);
 menu2.addItem("<code>w00t!</code>",true,this);
 menu.addItem(new MenuItem("Style", menu0));
 menu.addItem(new MenuItem("Fruit", menu1));
 menu.addItem(new MenuItem("Term", menu2));
 ```
 ![](ressources/images/GWT_-_04_-_Les_Widgets_et_le_Développement_d'IHMs-10000000000000CF0000009A04EA7E8B.png)
-
 
 Notes :
 
