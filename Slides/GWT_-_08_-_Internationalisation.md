@@ -2,7 +2,6 @@
 
 <!-- .slide: class="page-title" -->
 
-
 Notes :
 
 
@@ -12,9 +11,9 @@ Notes :
 
 - GWT fournit un mécanisme d'internationalisation - externalisation pour les constantes et les messages
 - Une implémentation basée sur la notion de Locale (J2SE)
-	- Des fichiers .properties encodés en UTF-8
+	- Des fichiers `.properties` encodés en UTF-8
 - Mise en œuvre simple
-	- Écriture d'un fichier .properties contenant les messages à externaliser
+	- Écriture d'un fichier `.properties` contenant les messages à externaliser
 	- Mise en place d'une interface Java à partir de ce fichier
 	- Utilisation de cette interface
 	- Fonctionne en mode compilé et en mode développement
@@ -58,11 +57,11 @@ Notes :
 ## Interface i18n
 
 - Plusieurs interfaces existent en fonction du besoin
-- com.google.gwt.i18n.client.Constants
+- `com.google.gwt.i18n.client.Constants`
 	- Pour récupérer des messages fixes
-- com.google.gwt.i18n.client.ConstantsWithLookup
+- `com.google.gwt.i18n.client.ConstantsWithLookup`
 	- Pour récupérer des messages associés à une clé
-- com.google.gwt.i18n.client.Messages
+- `com.google.gwt.i18n.client.Messages`
 	- Pour définir des messages paramétrables
 Notes :
 
@@ -108,7 +107,7 @@ private static final AppConstantes CONSTANTES =
 String lundi =CONSTANTES.lundi();
 ```
 
-- Si l'interface est une sous classe de ConstantsWithLookup, il est possible d'accéder aux valeurs via leur clé et la méthode getString
+- Si l'interface est une sous classe de `ConstantsWithLookup`, il est possible d'accéder aux valeurs via leur clé et la méthode `getString`
 
 ```java
 String lundi =CONSTANTES.getString("lundi");
@@ -120,7 +119,7 @@ Notes :
 
 ## Messages (1/2)
 
-- L'interface doit se trouver dans le même package que les fichiers .properties
+- L'interface doit se trouver dans le même package que les fichiers `.properties`
 
 ![](ressources/images/GWT_-_08_-_Internationalisation-10000000000000D7000000447C43D382.png)
 
@@ -142,7 +141,7 @@ Notes :
 
 ## Messages (2/2)
 
-- Récupération d'un messages paramétré dans le code client
+- Récupération d'un message paramétré dans le code client
 
 ```java
 private final static AppMessages MESSAGES = 
@@ -159,8 +158,8 @@ Notes :
 ## Internationaliser les nombres et les dates
 
 - GWT fournit deux classes
-	- DateTimeFormat
-	- NumberFormat
+	- `DateTimeFormat`
+	- `NumberFormat`
 - Permettent de formater les nombres et les dates en respectant les spécificités de la locale
 Notes :
 
@@ -169,8 +168,7 @@ Notes :
 
 ## Accéder aux informations de la locale
 
-- Pour cela, GWT fournit la classe LocaleInfo
-	- Connaitre la locale courante
+- Pour cela, GWT fournit la classe `LocaleInfo` pour Connaitre la locale courante
 
 ```java
 if(LocaleInfo.getCurrentLocale().isRTL())
@@ -178,7 +176,8 @@ if(LocaleInfo.getCurrentLocale().isRTL())
 	...
 }
 ```
-	- Récupérer la liste des locales disponibles
+
+- Et récupérer la liste des locales disponibles
 
 ```java
 for(String localeName : LocaleInfo.getAvailableLocaleNames()) {
