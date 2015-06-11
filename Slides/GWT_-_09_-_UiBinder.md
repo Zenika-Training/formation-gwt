@@ -42,7 +42,6 @@ Notes :
     <img src="ressources/images/09-uibinder/uibinder.png" width="65%"/>
 </figure>
 
-
 Notes :
 
 
@@ -63,7 +62,7 @@ Notes :
 
 ## Instanciation des composants (1/4)
 
-- Par défaut, GWT utilise la méthode GWT.create pour instancier les composants UiBinder
+- Par défaut, GWT utilise la méthode `GWT.create` pour instancier les composants UiBinder
 - Il est possible de redéfinir ce comportement
 	- En fournissant une instance de chaque composant
 	- En définissant une factory de composant
@@ -92,7 +91,7 @@ Notes :
 	}
 ```
 
-- Le widget doit être instancié avant l'appel à méthode createAndBindUi
+- Le widget doit être instancié avant l'appel à méthode `createAndBindUi`
 	
 Notes :
 
@@ -119,8 +118,8 @@ Notes :
 
 ## Instanciation des composants (4/4)
 
-- Dans le cas où le widget à instancier ne possède pas de constructeur sans paramètre, l'appel à la méthode GWT.create() est impossible.
-- Il est bien sûr possible d'utiliser les méthodes précédentes (provided=true, @UiFactory)
+- Dans le cas où le widget à instancier ne possède pas de constructeur sans paramètre, l'appel à la méthode `GWT.create()` est impossible.
+- Il est bien sûr possible d'utiliser les méthodes précédentes (`provided=true`, `@UiFactory`)
 - Une solution consiste à annoter un des constructeurs (non vide) du widget à instancier, les paramètres étant déclarés en xml
 
 ```java
@@ -141,7 +140,7 @@ Notes :
 
 ## Gestion des événements (1/2)
 
-- Utilisation de l'annotation @UiHandler sur le widget déclaré par ui:field
+- Utilisation de l'annotation `@UiHandler` sur le widget déclaré par `ui:field`
 
 ```java
 @UiHandler("reset")
@@ -153,7 +152,7 @@ public void onReset(ClickEvent event) {
 }
 ```
 
-- Remarque : Pour déterminer le type de Handler à associer, UiBinder se base sur l'Event passé en paramètre → ClickEvent dans l'exemple
+- Remarque : Pour déterminer le type de Handler à associer, UiBinder se base sur l'Event passé en paramètre → `ClickEvent` dans l'exemple
 
 Notes :
 
@@ -161,7 +160,7 @@ Notes :
 
 ## Gestion des événements (2/2)
 
-- Il est possible d'associer plusieurs widgets à l'annotation @UiHandler
+- Il est possible d'associer plusieurs widgets à l'annotation `@UiHandler`
 
 ```java
 @UiHandler({"reset1","reset2"})
@@ -171,7 +170,6 @@ public void onReset(ClickEvent event) {
 ```
 
 Notes :
-
 
 
 
@@ -192,8 +190,7 @@ Notes :
 
 - Embarquer les styles dans le fichier XML
 	- Utilisation de la balise style<ui:style>
-	- Référencement de la classe css avec une expression placée entre { }
-
+	- Référencement de la classe css avec une expression placée entre `{ }`
 
 ```
 <! DOCTYPE ui:UiBinder SYSTEM
@@ -274,7 +271,7 @@ Notes :
 ## Internationalisation
 
 - Utilise le mécanisme d'internationalisation de GWT
-- Il est possible d'appeler les dictionnaires existants via la notation {dictionnaire.clé}
+- Il est possible d'appeler les dictionnaires existants via la notation `{dictionnaire.clé}`
 
 ```
 <ui:with type="com.zenika.resanet.gwt.client.i18n.AppMessages" 
