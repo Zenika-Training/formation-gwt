@@ -2,7 +2,6 @@
 
 <!-- .slide: class="page-title" -->
 
-
 Notes :
 
 
@@ -42,9 +41,9 @@ Notes :
 
 - La librairie GwtRpc-Spring offre une intégration simple de Spring avec GWT 1.6.x et plus.
 - Téléchargeable à l'adresse suivante :http://code.google.com/p/gwtrpc-spring/
-- GwtRpc-Spring fournit un RemoteServiceDispatcher qui intercepte les requêtes RPC du client et cherche dans le context Spring une classe implémentant le service demandé.
+- GwtRpc-Spring fournit un `RemoteServiceDispatcher` qui intercepte les requêtes RPC du client et cherche dans le contexte Spring une classe implémentant le service demandé.
 	- Plus besoin de déclarer une servlet par service.
-	- Les implémentations de services n'ont plus besoin d'hériter de RemoteServiceServlet.
+	- Les implémentations de services n'ont plus besoin d'hériter de `RemoteServiceServlet`.
 	- Tout POJO Spring peut devenir un service RPC
 Notes :
 
@@ -53,10 +52,8 @@ Notes :
 
 ## Intégration Spring – Mise en œuvre (1/5)
 
-- Éditer le fichier web.xml
-
-- 
-	- Déclaration du ContextLoaderListener de Spring
+- Éditer le fichier `web.xml`
+	- Déclaration du `ContextLoaderListener` de Spring
 	```xml
 	<listener>
 		<listener-class>
@@ -72,7 +69,6 @@ Notes :
 	</servlet>
 	```
 
-
 Notes :
 
 
@@ -80,8 +76,8 @@ Notes :
 
 ## Intégration Spring – Mise en œuvre (2/5)
 
-- Éditer le fichier web.xml  
-	- Mapping de la servlet sur toutes les url de type *.rpc
+- Éditer le fichier `web.xml`  
+	- Mapping de la servlet sur toutes les url de type `*.rpc`
 
 	```
 		<servlet-mapping>
@@ -100,7 +96,6 @@ Notes :
 - L'interface du service
 ![](ressources/images/11_jee/spring.png)
 
-
 Notes :
 
 
@@ -109,8 +104,8 @@ Notes :
 ## Intégration Spring – Mise en œuvre (4/5)
 
 - L'implémentation du service
-	- Tout bean Spring peut être exposé via l’annotation @Service. Avec l'annotation il n'est plus nécessaire de déclarer le bean dans le fichier xml de Spring
-	- L'implémentation du service n'a plus besoin d'hériter de la classe RemoteServiceServlet
+	- Tout bean Spring peut être exposé via l’annotation `@Service`. Avec l'annotation il n'est plus nécessaire de déclarer le bean dans le fichier xml de Spring
+	- L'implémentation du service n'a plus besoin d'hériter de la classe `RemoteServiceServlet`
 
 ```java
 	@Service
@@ -143,7 +138,7 @@ Notes :
 		<bean id="monService"class="com.zenika.xxxx.MonServiceImpl"/>
 	</beans>
 	```
-- Une fois configurés, tous les appels sur les urls se terminant par *.rpc seront « dispatchés » vers le bean Spring correspondant.
+- Une fois configurés, tous les appels sur les urls se terminant par `*.rpc` seront « dispatchés » vers le bean Spring correspondant.
 Notes :
 
 
