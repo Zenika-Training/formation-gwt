@@ -35,7 +35,7 @@ Notes :
 - Hériter d'un widget standard GWT et redéfinir le comportement
 - Exemple
 	- Un champ texte changeant de couleur lors de la prise de focus
-	- La classe GWT à étendre est TextBox
+	- La classe GWT à étendre est `TextBox`
 	- Ajouter si nécessaire des écoutes d'événements
 - Cette approche n'est pas à privilégier, préferer la composition
 	- Principe du « Composition over inheritance »
@@ -46,7 +46,6 @@ Notes :
 
 ## Exemple d'héritage (1/2)
 
-
 ![](ressources/images/GWT_-_06_-_Développement_de_composants-1000000000000232000001FDBA6CD42F.png)
 
 Notes :
@@ -55,7 +54,6 @@ Notes :
 
 
 ## Exemple d'héritage (2/2)
-
 
 <figure>
     <img src="ressources/images/GWT_-_06_-_Développement_de_composants-100000000000032000000258604230C4.png" width="35%"/>
@@ -71,7 +69,6 @@ Après définition de la classe CSS:
     <img src="ressources/images/GWT_-_06_-_Développement_de_composants-1000000000000320000002587EC29506.png" width="35%"/>
 </figure>
 
-
 Notes :
 
 
@@ -80,7 +77,7 @@ Notes :
 ## Deuxième approche : La composition
 
 - Créer un widget spécialisé qui encapsule un ou plusieurs autres widgets
-- Pour cela, GWT fournit la classe Composite
+- Pour cela, GWT fournit la classe `Composite`
 ```java 
 public class MonWidgetComposite extends Composite {
 	public MonWidgetComposite(){ 
@@ -92,7 +89,7 @@ public class MonWidgetComposite extends Composite {
 }
 ```
 - Permet de masquer les méthodes internes du composant encapsulé
-- Facilite l'évolutivité en permettant de changer l'implémentation interne du Composite sans impacter les autres widgets
+- Facilite l'évolutivité en permettant de changer l'implémentation interne du `Composite` sans impacter les autres widgets
 
 Notes :
 
@@ -120,7 +117,7 @@ Notes :
 	- Palette de composants assez complète et prête à l'emploi
 - Inconvénients
 	- Ergonomie, design et comportement relativement fixes et rustiques
-		- Pas de drag n'drop
+		- Pas de drag'n'drop
 		- API relativement de bas niveau
 Notes :
 

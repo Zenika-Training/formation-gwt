@@ -2,7 +2,6 @@
 
 <!-- .slide: class="page-title" -->
 
-
 Notes :
 
 
