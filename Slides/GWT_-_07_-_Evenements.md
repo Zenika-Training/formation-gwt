@@ -30,9 +30,9 @@ Notes :
 
 ## Handler événement
 
-- Tout événement personnalisé doit être associé à un Handler
-- Un Handler d'événement
-	- Doit hériter de EventHandler
+- Tout événement personnalisé doit être associé à un `Handler`
+- Un `Handler` d'événement
+	- Doit hériter de `EventHandler`
 	- Fournit une/plusieurs méthodes permettant d'associer une action à un événement donné
 ```java
 	public interface LoginHandler extends EventHandler {
@@ -77,10 +77,10 @@ Notes :
 
 - Les événements personnalisés font le lien entre les différents composants/écrans de l'application
 - Un événement personnalisé
-	- Doit hériter de Event<Handler> (Handler doit correspondre auHandler précédemment créé)
+	- Doit hériter de `Event<Handler>` (`Handler` doit correspondre au `Handler` précédemment créé)
 	- Peut fournir plusieurs informations contextuelles (exemple : Utilisateur)
-	- Doit fournir un type égal à Type<Handler>
-	- Doit appeler l'ensemble des méthodes du Handler depuis la méthode dispatch
+	- Doit fournir un type égal à `Type<Handler>`
+	- Doit appeler l'ensemble des méthodes du `Handler` depuis la méthode `dispatch` 
 Notes :
 
 
@@ -91,7 +91,7 @@ Notes :
 - Le composant peut envoyer un événement qui est transmis aux handlers enregistrés (remarque : tout widget peut envoyer un événement)
 ```java
 public void login(Operateur operateur) { 
-	fireEvent( new LoginEvent(operateur));
+	fireEvent(new LoginEvent(operateur));
 }
 ```
 - Le composant parent peut enregistrer un handler afin de réagir aux événements du composant fils
@@ -121,7 +121,7 @@ Notes :
 ## Les événements au sein de l'application
 
 - Les événements personnalisés peuvent également servir à découpler les écrans d'une application
-- Cette mise en œuvre s'appuie sur un élément central : un EventBus
+- Cette mise en œuvre s'appuie sur un élément central : un `EventBus`
 - L'objectif principal est d'assurer la navigation entre écrans de manière optimale en palliant l'effet « spaghetti »
 Notes :
 
@@ -136,7 +136,6 @@ Notes :
     <img src="ressources/images/07_event/spaghetti.png" width="80%"/>
 </figure>
 
-
 Notes :
 
 
@@ -150,7 +149,6 @@ Notes :
     <img src="ressources/images/07_event/spaghetti2.png" width="80%"/>
 </figure>
 
-
 Notes :
 
 
@@ -159,23 +157,26 @@ Notes :
 ## EventBus
 
 - Depuis la version 2.1 de GWT, Google fournit une API EventBus
-- Interface EventBus
+- Interface `EventBus`
 - Plusieurs implémentations disponibles
-	- SimpleEventBus
-	- ResettableEventBus
-	- CountingEventBus
-	- RecordingEventBus
+	- `SimpleEventBus`
+	- `ResettableEventBus`
+	- `CountingEventBus`
+	- `RecordingEventBus`
 Notes :
 
 
 
 
 ## EventBus
-```java
+
+<pre style="border: 1px solid #b30c37;border-left: 5px solid #b30c37;">
+<code class="java">
 public interface LoginHandler extends EventHandler {
 	void onLogin(LoginEvent event);
 }
-```
+</code>
+</pre>
 
 ```java
 // INSTANCE UNIQUE POUR TOUTE L'APPLICATION
@@ -187,17 +188,15 @@ EVENT_BUS.addHandler( LoginEvent.TYPE,new LoginHandler() {
 	}
 });
 ```
-<figure style="position: absolute; top: 130px; right: 50%;">
+<figure style="position: absolute; top: 170px; right: 50%;height: 85px;">
     <img src="ressources/images/GWT_-_07_-_Evenements-1000020100000080000000801B084A46.png"/>
 </figure>
-
 
 ```java
 …
 EVENT_BUS.fireEvent(newLoginEvent(utilisateur));
 …
 ```
-
 
 Notes :
 
