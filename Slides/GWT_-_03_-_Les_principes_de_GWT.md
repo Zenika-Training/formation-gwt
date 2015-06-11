@@ -8,7 +8,7 @@
 
 - Il existe deux types d'utilisation de GWT pour une application Web
 - Web 2.0 « Light »
-	- GWT est utilisé de façon parcimonieuse pour enrichir une application web 1.0 classique
+	- GWT est utilisé avec parcimonie pour enrichir une application web 1.0 classique
 - Web 2.0 « Rich Client »
 	- Toute l'application est construite avec GWT, qui devient le framework structurant de la partie cliente de l'application
 Notes :
@@ -125,8 +125,6 @@ Permet une architecture orientée composant et développée en couches
 
 - Augmente la réutilisation et l'évolutivité
 - Facilite la maintenance
-
-
 Notes :
 
 
@@ -143,7 +141,7 @@ Notes :
 
 ## L'encapsulation (2/2)
 
-- Permet de transformer les éléments HTML, pauvres en sens et en comportements, en composants riches sémantiquement
+- Permet de transformer les éléments HTML (pauvres en sens et en comportement) en composants riches sémantiquement
 - Rappel du concept Objet : un objet encapsule de façon cohérente des données (propriétés) et des comportements (méthodes)
 - Avantages
 	- Abstraction
@@ -171,7 +169,6 @@ Notes :
 
 ## Le modèle évènementiel
 
-
 ![](ressources/images/03_principe/event.png)
 
 Notes :
@@ -195,7 +192,7 @@ Notes :
 
 ## Liste d'événements d'un widget
 
-- Connaître les événements émis par un Widget → Liste définie par les interfaces de typeHas*Handlersqu'implémente le widget
+- Connaître les événements émis par un Widget → Liste définie par les interfaces de type `Has*Handlers` implémentées par le widget
 
 ![](ressources/images/03_principe/widgetEvent.png)
 
@@ -217,17 +214,12 @@ button.addClickHandler(
 		}
 });
 ```
-
-
-![](ressources/images/GWT_-_03_-_Les_principes_de_GWT-10000201000000300000003078EB268F.png)
-
 Notes :
 
 
 
 
 ## S'abonner à un événement
-
 
 ![](ressources/images/03_principe/addEvent.png)
 
