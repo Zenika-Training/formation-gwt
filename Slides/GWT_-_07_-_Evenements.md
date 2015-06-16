@@ -99,11 +99,11 @@ public void login(Operateur operateur) {
 public class ParentComponent extends Composite {
 	public ParentComponent() {
 		LoginComponent component = new LoginComponent();
-		component.addHandler( new LoginHandler() {
+		component.addHandler(new LoginHandler() {
 			public void onLogin(LoginEvent event) {
 				Window.alert("L'utilisateur s'est connecté !");
 			}
-		},LoginEvent.TYPE);
+		}, LoginEvent.TYPE);
 ```
 
 Notes :
@@ -181,7 +181,7 @@ public interface LoginHandler extends EventHandler {
 ```java
 // INSTANCE UNIQUE POUR TOUTE L'APPLICATION
 public static final EventBus EVENT_BUS = new SimpleEventBus();
-EVENT_BUS.addHandler( LoginEvent.TYPE,new LoginHandler() {
+EVENT_BUS.addHandler(LoginEvent.TYPE, new LoginHandler() {
 	@Override 
 	public void onLogin(LoginEvent event) {
 		// TRAITEMENT SUITE A LOGIN
@@ -193,9 +193,7 @@ EVENT_BUS.addHandler( LoginEvent.TYPE,new LoginHandler() {
 </figure>
 
 ```java
-…
 EVENT_BUS.fireEvent(newLoginEvent(utilisateur));
-…
 ```
 
 Notes :

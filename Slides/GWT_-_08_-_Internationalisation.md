@@ -36,18 +36,19 @@ Notes :
 
 - Par ordre de résolution
 	- Dans les paramètres de l'url HTTP
+	<!-- .element: style="width: 110%;" -->
 	```
 	http://127.0.0.1:8888/Resanet.html?locale=fr
 	```
 	- Dans les meta de la host page html
+	<!-- .element: style="width: 110%;" -->
 	```
-	<metaname="gwt:property"content="locale=fr">
-
+	<meta name="gwt:property" content="locale=fr">
 	```
 	- Dans le fichier de configuration du module GWT
-	
+	<!-- .element: style="width: 110%;" -->
 	```
-	<set-property-fallbackname="locale"value="fr">
+	<set-property-fallback name="locale" value="fr">
 	```
 Notes :
 
@@ -103,14 +104,14 @@ Notes :
 ```java
 private static final AppConstantes CONSTANTES = 
 	GWT.create(AppConstantes.class);
-…
-String lundi =CONSTANTES.lundi();
+...
+String lundi = CONSTANTES.lundi();
 ```
 
 - Si l'interface est une sous classe de `ConstantsWithLookup`, il est possible d'accéder aux valeurs via leur clé et la méthode `getString`
 
 ```java
-String lundi =CONSTANTES.getString("lundi");
+String lundi = CONSTANTES.getString("lundi");
 ```
 Notes :
 
@@ -146,7 +147,7 @@ Notes :
 ```java
 private final static AppMessages MESSAGES = 
 	GWT.create(AppMessages.class);
-…
+...
 String message = MESSAGES.messageA(civilite, nom, application);
 ```
 
@@ -168,7 +169,7 @@ Notes :
 
 ## Accéder aux informations de la locale
 
-- Pour cela, GWT fournit la classe `LocaleInfo` pour Connaitre la locale courante
+- Pour cela, GWT fournit la classe `LocaleInfo` pour connaitre la locale courante
 
 ```java
 if(LocaleInfo.getCurrentLocale().isRTL())
@@ -207,7 +208,7 @@ Notes :
 	```
 		cartItems=Votre panier contient {0,number} articles.
 		cartItems[none]=Votre panier ne contient aucun article.
-		cartItems[one]=Votre panier contient 1 article....
+		cartItems[one]=Votre panier contient 1 article...
 	```
 
 	- Plus d'informations dans la documentation de GWT http://www.gwtproject.org/doc/latest/DevGuideI18nPluralForms.html

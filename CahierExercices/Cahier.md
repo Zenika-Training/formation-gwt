@@ -163,7 +163,9 @@ Cet exercice consiste à internationaliser l'application Resanet.
 - Déclarer deux locales dans votre application (en et fr)
 
 ### Interface Constants
-- Créer l'interface AppConstants qui va contenir toutes les chaines de caractère de votre application ainsi que les fichiers de properties
+- Créer le package `com.zenika.resanet.gwt.client.i18n.constants` avec
+	- l'interface AppConstants contenant toutes les chaines de caractère de votre application
+	- les fichiers de properties (fr et en)
 - Extraire toutes ces constantes dans les fichiers de properties en créant à chaque fois la méthode associée dans l'interface
 - Remplacer les constantes dans votre code par l'appel à l'interface i18n
 

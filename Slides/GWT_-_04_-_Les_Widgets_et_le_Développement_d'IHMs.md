@@ -101,7 +101,6 @@ Notes :
 	- Par exemple, `setColor()` n'existe pas
 
 ```java
-	…
 	label.setWidth("100px");
 	label.setHeight("20px");
 ```
@@ -118,9 +117,7 @@ Notes :
 	- La plupart des Widgets GWT possèdent déjà un style par défaut
 
 ```java
-	……
 	label.setStyleName("label-moyen");
-	…
 ```
 
 
@@ -184,7 +181,6 @@ Notes :
 - Agence les composants verticalement suivant l'ordre dans lequel ils sont ajoutés
 
 ```java
-…
 VerticalPanel panel = new VerticalPanel();
 Label label0 = new Label("0");
 panel.add(label0);
@@ -193,7 +189,6 @@ panel.add(label1);
 Label label2 = new Label("2");
 panel.add(label2);
 RootPanel.get("slot1").add(panel);
-…
 ```
 <figure style="position: absolute; bottom: 20%; right: 15%;">
     <img src="ressources/images/GWT_-_04_-_Les_Widgets_et_le_Développement_d'IHMs-10000000000000D0000000BFF66BF7AF.png"/>
@@ -209,7 +204,6 @@ Notes :
 - Agence les composants horizontalement suivant l'ordre dans lequel ils sont ajoutés
 
 ```java
-…
 HorizontalPanel panel = new HorizontalPanel();
 Label label0 = new Label("0");
 panel.add(label0);
@@ -218,7 +212,6 @@ panel.add(label1);
 Label label2 = new Label("2");
 panel.add(label2);
 RootPanel.get("slot1").add(panel);
-…
 ```
 <figure style="position: absolute; bottom: 20%; right: 15%;">
     <img src="ressources/images/GWT_-_04_-_Les_Widgets_et_le_Développement_d'IHMs-10000000000000D5000000BA7A14F667.png"/>
@@ -235,16 +228,20 @@ Notes :
 
 ```java
 DockPanel panel = new DockPanel();
+
 Label north = new Label("North");
 panel.add(north,DockPanel.NORTH);
+
 Label west1 = new Label("West");
 panel.add(west1,DockPanel.WEST);
+
 Label west2 = new Label("West");
 panel.add(west2,DockPanel.WEST);
+
 Label south = new Label("South");
 panel.add(south,DockPanel.SOUTH);
+
 RootPanel.get("slot1").add(panel);
-…
 ```
 
 <figure style="position: absolute; bottom: 25%; right: 15%;">

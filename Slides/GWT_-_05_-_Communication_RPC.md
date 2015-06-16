@@ -281,16 +281,16 @@ Notes :
 ```java
 AsyncCallback<Void> callback = new AsyncCallback<Void>() {
 	public void onFailure(Throwable caught) {
-		if( caught instanceof MonException1){
+		if(caught instanceof MonException1){
 			MonException1 ex = (MonException1) caught;
 			// faire quelque chose
-		}else if(caught instanceof MonException2){
+		} else if(caught instanceof MonException2){
 			// faire quelque chose d'autre
 		}
 }
 public interface MonService extends RemoteService {
-		public void maMethode(String param)throws MonException1,
-			MonException2)
+		public void maMethode(String param) throws MonException1,
+			MonException2
 }
 ```
 Notes :
