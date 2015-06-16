@@ -1,6 +1,7 @@
 package com.zenika.resanet.gwt.client.view.menu;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.Scheduler.ScheduledCommand;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Command;
@@ -14,45 +15,46 @@ import com.zenika.resanet.gwt.client.view.popup.LogoutPopup;
 
 public class Menu extends Composite {
 
-    private static MenuUiBinder uiBinder = GWT.create(MenuUiBinder.class);
+	private static MenuUiBinder uiBinder = GWT.create(MenuUiBinder.class);
 
-    interface MenuUiBinder extends UiBinder<Widget, Menu> {
-    }
+	interface MenuUiBinder extends UiBinder<Widget, Menu> {
+	}
 
-    @UiField
-    MenuItem modifierItem;
+	@UiField
+	MenuItem modifierItem;
 
-    @UiField
-    MenuItem deconnecterItem;
+	@UiField
+	MenuItem deconnecterItem;
 
-    @UiField
-    MenuItem rechercherItem;
+	@UiField
+	MenuItem rechercherItem;
 
-    public Menu() {
-        initWidget(uiBinder.createAndBindUi(this));
-        modifierItem.setCommand(new Command() {
+	public Menu() {
+		initWidget(uiBinder.createAndBindUi(this));
+		modifierItem.setScheduledCommand(new ScheduledCommand() {
 
-            @Override
-            public void execute() {
-                EcranPrincipal.EVENT_BUS.fireEvent(new ModifierOperateurEvent());
-            }
-        });
+			@Override
+			public void execute() {
+				EcranPrincipal.EVENT_BUS
+						.fireEvent(new ModifierOperateurEvent());
+			}
+		});
 
-        deconnecterItem.setCommand(new Command() {
+		deconnecterItem.setScheduledCommand(new ScheduledCommand() {
 
-            @Override
-            public void execute() {
-                LogoutPopup logoutPopup = new LogoutPopup();
-                logoutPopup.center();
-            }
-        });
+			@Override
+			public void execute() {
+				LogoutPopup logoutPopup = new LogoutPopup();
+				logoutPopup.center();
+			}
+		});
 
-        rechercherItem.setCommand(new Command() {
+		rechercherItem.setScheduledCommand(new ScheduledCommand() {
 
-            @Override
-            public void execute() {
-                EcranPrincipal.EVENT_BUS.fireEvent(new RechercherVoyageEvent());
-            }
-        });
-    }
+			@Override
+			public void execute() {
+				EcranPrincipal.EVENT_BUS.fireEvent(new RechercherVoyageEvent());
+			}
+		});
+	}
 }

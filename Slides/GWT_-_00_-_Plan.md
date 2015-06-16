@@ -29,7 +29,6 @@ Notes :
 ## Plan
 
 - UiBinder
-- Développement de composants
 - Historique
 - Intégration Java EE
 - Tests

@@ -82,7 +82,7 @@ Notes :
 	public class TransportRecherchePanel extends Composite {
 		interface MyUiBinder extends UiBinder<Widget, TransportRecherchePanel> {}
 		private static MyUiBinder uiBinder = GWT.create(MyUiBinder.class);
-		@UiField(provided =true)
+		@UiField(provided = true)
 		Label monLabel;
 		public TransportRecherchePanel() {
 			monLabel = new Label("Mon Label");
@@ -104,8 +104,8 @@ Notes :
 
 ```java
 @UiFactory
-MyCustomWidget buildMyCustomWidgets(){
-	return newMyCustomWidget(true);
+MyCustomWidget buildMyCustomWidgets() {
+	return new MyCustomWidget(true);
 }
 ```
 
@@ -124,13 +124,13 @@ Notes :
 
 ```java
 @UiConstructor
-public MyCustomWidget(booleanvalidate) {
-	this.validate= validate;
+public MyCustomWidget(boolean validate) {
+	this.validate = validate;
 }
 ```
 
 ```
-<m:MyCustomWidgetvalid validate="true" />
+<m:MyCustomWidget validate="true" />
 ```
 
 Notes :

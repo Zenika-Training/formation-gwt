@@ -1,3 +1,11 @@
 node_modules
 .idea
 PDF
+
+Exercices/**/.gwt
+Exercices/**/.settings/**
+!Exercices/**/.settings/org.eclipse.wst.common.project.facet.core.xml
+Exercices/**/gwt-unitCache
+Exercices/**/test-classes
+Exercices/**/war/WEB-INF/classes
+Exercices/**/war/resanet
