@@ -65,12 +65,12 @@ Notes :
 ## Structure d'un Module GWT
 
 - Module GWT = bibliothèque GWT
-	- Un répertoire « src » qui contient les sources
-	- Un répertoire « war » qui contient les fichiers générés
+	- Un répertoire `src` qui contient les sources
+	- Un répertoire `war` qui contient les fichiers générés
 - La structure se veut proche de celle d'une application JEE standard
-	- Ressources statiques (ie. CSS, images, Javascript ...) présentes dans le dossier war
-	- Présence des dossiers WEB-INF et WEB-INF/lib
-	- Servlets déclarées dans le fichier web.xml
+	- Ressources statiques (ie. CSS, images, Javascript ...) présentes dans le dossier `war`
+	- Présence des dossiers `WEB-INF` et `WEB-INF/lib`
+	- Servlets déclarées dans le fichier `web.xml`
 Notes :
 
 
@@ -169,7 +169,7 @@ Notes :
 
 ## La Host HTML Page (1/2)
 
-- La Host HTML Page est le déclencheur duchargement du module
+- La Host HTML Page est le déclencheur du chargement du module
 
 <figure>
     <img src="ressources/images/02_eclipse/hostPage.png" width="80%"/>
@@ -195,7 +195,7 @@ Notes :
 
 - Le mode « Développement » est possible via l'installation d'un plugin dans le navigateur
 
-- Une fois le plugin installé, l'utilisateur peut tester l'application  directement sur le navigateur de son choix.
+- Une fois le plugin installé, l'utilisateur peut tester l'application directement sur le navigateur de son choix.
 
 - Avantages
 	- Liberté de tester sur le navigateur de son choix
@@ -414,7 +414,7 @@ Notes :
 
 ## gwt-*.jar (1/2)
 
-- `gwt-dev.jar` et `gwt-user.jar` ne sont pas destiné à être packagé dans le war.
+- `gwt-dev.jar` et `gwt-user.jar` ne sont pas destinés à être packagés dans le war.
 - Seul `gwt-servlet.jar` est nécessaire, et ce, seulement si vous utilisez la communication RPC.
 - Vous remarquerez d'ailleurs que `gwt-servlet.jar` ne contient aucune des classes de l'API servlet.
 

@@ -100,9 +100,9 @@ Notes :
 
 - Plusieurs acteurs du marché fournissent des librairies de composant
 	- Smart GWT (anciennement GWT-Ext) :
-	- Wrappe l'API JavaScript Smart Client via du code JSNI
+		- Wrappe l'API JavaScript Smart Client via du code JSNI
 	- GXT (anciennement Ext-GWT)
-	- Composants « Full Java »
+		- Composants « Full Java »
 - Il est recommandé de limiter leur utilisation tant que cela n'est pas absolument nécessaire
 Notes :
 

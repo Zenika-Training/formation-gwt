@@ -18,6 +18,7 @@ Notes :
 ## Plan
 
 - La communication RPC
+- Le développement de composants
 - Les événements au sein de GWT
 - Internationaliser une application GWT
 Notes :

@@ -26,7 +26,7 @@ Notes :
 - La classe `DOM`
 	- Classe permettant de manipuler directement la structure HTML (ie. DOM) du browser
 - La classe `Window`
-	- Classe permettant d'interagir avec la fenêtre du browserpar exemple : `Window.alert("Bonjour");`
+	- Classe permettant d'interagir avec la fenêtre du browser par exemple : `Window.alert("Bonjour");`
 
 
 
@@ -418,14 +418,14 @@ CellTable<Contact> table = new CellTable<Contact>();
 ```
 - Chaque colonne de la table doit définir son propre rendu
  ```java
-TextColumn<Contact> nameColumn = new TextColun<Contact>() {
+TextColumn<Contact> nameColumn = new TextColumn<Contact>() {
 	 public String getValue(Contact contact) { 
-		returncontact.name;
+		return contact.name;
 	}
 };
-TextColumn<Contact> addressColumn = newTextColumn<Contact>() {
+TextColumn<Contact> addressColumn = new TextColumn<Contact>() {
 	public String getValue(Contact contact) {
-		returncontact.address;
+		return contact.address;
 	}
 };
 table.addColumn(nameColumn,"Name");

@@ -166,7 +166,7 @@ MonServiceAsync monService = GWT.create(MonService.class);
 ```
 - Création du callback pour traiter le résultat de l'exécution
 ```java
-AsyncCallback callback =newAsyncCallback<String>() {
+AsyncCallback callback = new AsyncCallback<String>() {
 	public void onSuccess(String result) {
 	// je peux manipuler mon résultat de retour
 	}
@@ -305,7 +305,7 @@ Notes :
 	- Le service a retourné une erreur non prévue (ie. RuntimeException)
 - Une exception InvocationException est passée à la callback
 ```java
-AsyncCallback<Void> callback =new AsyncCallback<Void>() { 
+AsyncCallback<Void> callback = new AsyncCallback<Void>() { 
 	public void onFailure(Throwable caught) {
 		if(caught instanceof InvocationException){
 			// problème réseau ou erreur inconnue
