@@ -6,7 +6,10 @@ Exercices/**/.gwt
 Exercices/**/.settings/**
 !Exercices/**/.settings/org.eclipse.wst.common.project.facet.core.xml
 Exercices/**/gwt-unitCache
+Exercices/**/www-test
 Exercices/**/test-classes
+Exercices/**/extras
 Exercices/**/war/WEB-INF/.gitignore
 Exercices/**/war/WEB-INF/classes
+Exercices/**/war/WEB-INF/deploy
 Exercices/**/war/resanet

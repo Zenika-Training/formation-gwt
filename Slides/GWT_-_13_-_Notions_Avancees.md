@@ -113,10 +113,10 @@ public class Test implements EntryPoint {
 				private int index = 0;
 				@Override
 				public boolean execute() {
-					panel.add(newLabel("Label "+ ++index));
+					panel.add(new Label("Label "+ ++index));
 					// si la limite est non atteinte
 					// on continue le traitement
-					returnindex< 1000;
+					return index < 1000;
 				}
 			});
 		}
@@ -317,12 +317,10 @@ Notes :
 - Méthode JSNI
 
 ```java
-…
-public native void alert(String msg)/*-{
+public native void alert(String msg) /*-{
 	// Code Javascript
 	$wnd.alert(msg);
 }-*/;
-…
 ```
 
 
@@ -353,7 +351,7 @@ signature)(arguments)
 public void infos(String message) {
 	…
 }
-public native void afficherInfos(String msg)/*-{
+public native void afficherInfos(String msg) /*-{
 	this.@com.zenika.gwt.Presenter::infos(Ljava/lang/String;)(msg)
 }-*/;
 ```
@@ -496,7 +494,6 @@ public class LogoutPopup extends DialogBox {
 	public void handlerNoClick(ClickEvent event) {
 		LogoutPopup.this.hide();
 	}
-
 ```
 Notes :
 

@@ -111,7 +111,7 @@ Notes :
 	@Service
 	public class MonServiceImpl implements MonService {
 		public String maMethode(String s){
-			return"Bonjour tout le monde";
+			return "Bonjour tout le monde";
 		}
 	}
 ```	
@@ -126,15 +126,15 @@ Notes :
 	- Spring avec annotations
 	```
 	<?xmlversion="1.0"encoding="UTF-8"?>
-	<beans…>
+	<beans>
 		<context:annotation-config/>
-		<context:component-scanbase-package="com.zenika.xxx.server"/>
+		<context:component-scan base-package="com.zenika.xxx.server"/>
 	</beans>
 	```
 	- Spring sans annotations
 	```
 	<?xmlversion="1.0"encoding="UTF-8"?>
-	<beans…>
+	<beans>
 		<bean id="monService"class="com.zenika.xxxx.MonServiceImpl"/>
 	</beans>
 	```
