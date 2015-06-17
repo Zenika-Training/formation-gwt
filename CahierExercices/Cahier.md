@@ -261,12 +261,15 @@ Remarques :
 - Contrôler que la popup « Bienvenue admin » se soit correctement affiché
 - Attention : bien attendre que la page se charge et que l'appel d'authentification soit effectué.
 
+
 ## TP 11. Code Splitting
 - Créer des points de rupture dans le code lors de l'affichage de l'écran de modification d'un opérateur ainsi que lors de l'affichage de l'écran de recheche de voyage.
 - Compiler puis lancer l'application sur tomcat (procédure du TP1). 
 - Depuis le navigateur constater le chargement des différents parties de code dans les fichiers ```<chiffre>```.cache.js
 
-### TP 12. JNSI
+
+## TP 12. JNSI
+
 - Inclure les éléments présent dans le répertoire de ressource « jnsi » dans le module xml (Resanet.gwt.xml)
 - Inclure la la hostPage :
 	- jquery-ui.js
@@ -291,7 +294,7 @@ transformer en Date avec la classe DateTimeFormat.
 - Faire attention à changer le type de widget utilisé dans le fichier java pour qu'il soit bien MyDatePicker et corriger l'utilisation de getValue par getDate pour que le code compile.
 - Tester que l'ensemble fonctionne correctement
 
-### Difficultés courantes rencontrées lors des Tps
+## Difficultés courantes rencontrées lors des Tps
 
 - Encodage des fichiers (Assurez vous de configurer Eclipse en UTF-8)
 - Cache navigateur (Penser a purger le cache de votre navigateur ou passer en navigation privée)
