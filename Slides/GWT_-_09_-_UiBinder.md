@@ -28,7 +28,7 @@ Notes :
 - Facilite la collaboration avec des designers qui sont plus à l'aise avec le HTML, XML et CSS
 - S'appuie sur l'API ClientBundle pour la gestion des ressources et support du mécanisme d'internationalisation GWT
 - A noter que UIBinder n'est pas une technologie de renderering.
-	- Aucune balise pour effectuer des boucles, conditionnelles...etc
+	- Aucune balise pour effectuer des boucles, conditionnelles...
 Notes :
 
 

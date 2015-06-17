@@ -11,9 +11,12 @@ Notes :
 	- amélioration des temps de compilation
 - Java 8
 	- intégration des lambdas
-- JSInterop
+- JSInterop / Elemental
 	- remplaçant du JSNI
-- GSS
-	-  https://code.google.com/p/closure-stylesheets/
+- GSS (Google Style Sheets)
+	- Extension CSS 3, remplace CssResource
+- Service Worker & Delta JS
+	- Le serveur peut calculer une diff pour envoyer la mise à jour au client (utilisé par Inbox)
+- Singular : AngularJS en Java (via GWT!)
 
 <!-- .GSS: class="page-questions" -->

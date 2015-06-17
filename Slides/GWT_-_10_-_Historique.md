@@ -88,13 +88,13 @@ History.addValueChangeHandler(
 		public void onValueChange(ValueChangeEvent<String> event) {
 			if (event.getValue().equals("etat_selection_voyage")) {
 				... // affichage ecran selection voyage
-			}else if(event.getValue()
+			} else if(event.getValue()
 				.equals("etat_infos_utilisateur") {
 			 ...// affichage ecran infos utilisateur
-		}else{
-		…
+			} else {
+		
+		}
 	}
-}
 });
 </code>
 </pre>

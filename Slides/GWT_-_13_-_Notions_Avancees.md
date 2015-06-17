@@ -489,7 +489,7 @@ Notes :
 public class LogoutPopup extends DialogBox {
 	@UiHandler("yesButton")
 	public void handlerYesClick(ClickEvent event) {
-		EcranPrincipal.EVENT_BUS.fireEvent(newLogoutEvent());
+		EcranPrincipal.EVENT_BUS.fireEvent(new LogoutEvent());
 		LogoutPopup.this.hide();
 	}
 	@UiHandler("noButton")
