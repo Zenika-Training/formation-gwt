@@ -8,7 +8,7 @@ Notes :
 
 ## Rappels
 
-- GWT Fonctionne en mode«&nbps;SinglePageInterface» (SPI)
+- GWT Fonctionne en mode « SinglePageInterface » (SPI)
 - Cela implique que le « passage » d'un écran à un autre ne modifie pas l'URL de la page.
 - Il faut donc trouver des contournements afin de conserver l'ergonomie de l'interface
 Notes :
